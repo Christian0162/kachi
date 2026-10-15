@@ -41,10 +41,7 @@ Future<AppDatabase> _pumpApp(
   addTearDown(container.dispose);
 
   await tester.pumpWidget(
-    UncontrolledProviderScope(
-      container: container,
-      child: const PhotoQuestApp(),
-    ),
+    UncontrolledProviderScope(container: container, child: const KachiApp()),
   );
   await tester.pumpAndSettle();
   return db;
@@ -58,25 +55,25 @@ void main() {
       await _pumpApp(tester, introSeen: false);
 
       expect(find.text('Pick a quest'), findsOneWidget);
-      expect(find.text('Next'), findsOneWidget);
+      expect(find.text('Get started'), findsOneWidget);
       expect(find.text('Skip'), findsOneWidget);
       expect(find.text('Create account'), findsNothing);
     });
 
-    testWidgets('Next moves on, and the last page says Get started', (
+    testWidgets('swiping moves on, and the last page has Get started', (
       tester,
     ) async {
       await _pumpApp(tester, introSeen: false);
 
-      await tester.tap(find.text('Next'));
+      await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
       await tester.pumpAndSettle();
       expect(find.text('Strike the pose'), findsOneWidget);
 
-      await tester.tap(find.text('Next'));
+      await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
       await tester.pumpAndSettle();
       expect(find.text('Keep the memory'), findsOneWidget);
       expect(find.text('Get started'), findsOneWidget);
-      expect(find.text('Next'), findsNothing);
+      expect(find.text('Get started'), findsOneWidget);
     });
 
     testWidgets('swiping moves between pages', (tester) async {
@@ -93,9 +90,9 @@ void main() {
     ) async {
       final db = await _pumpApp(tester, introSeen: false);
 
-      await tester.tap(find.text('Next'));
+      await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Next'));
+      await tester.fling(find.byType(PageView), const Offset(-400, 0), 1000);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Get started'));
       await tester.pumpAndSettle();

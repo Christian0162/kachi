@@ -1,6 +1,6 @@
-# Photo Quest backend (Supabase, Free plan)
+# Kachi backend (Supabase, Free plan)
 
-Photo Quest uses Supabase for **accounts, the profile row, and avatar photos**
+Kachi uses Supabase for **accounts, the profile row, and avatar photos**
 only. Quests, memories and photos stay on the phone.
 
 Everything here works on the Supabase **Free** plan.

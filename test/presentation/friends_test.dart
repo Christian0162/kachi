@@ -57,7 +57,7 @@ Future<void> _pumpPeople(
           sharing ?? FakeSharingService(),
         ),
       ],
-      child: const PhotoQuestApp(),
+      child: const KachiApp(),
     ),
   );
   await tester.pumpAndSettle();
@@ -113,7 +113,7 @@ void main() {
     testWidgets('start empty, with a way to add someone', (tester) async {
       await _pumpPeople(tester, FakeCloudFriendsRepository());
 
-      expect(find.text('Friends on Photo Quest'), findsOneWidget);
+      expect(find.text('Friends on Kachi'), findsOneWidget);
       expect(
         find.text('No friends yet. Share your friend code, or enter theirs.'),
         findsOneWidget,
@@ -226,7 +226,7 @@ void main() {
       final friends = FakeCloudFriendsRepository()
         ..failNext = const SharingFailure(
           SharingFailureKind.offline,
-          "Can't reach Photo Quest right now.",
+          "Can't reach Kachi right now.",
         );
       await _pumpPeople(tester, friends);
 

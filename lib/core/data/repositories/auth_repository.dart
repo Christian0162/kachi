@@ -160,7 +160,7 @@ class SupabaseAuthRepository implements AuthRepository {
 
   static const _offline = AuthFailure(
     AuthFailureKind.offline,
-    "Can't reach Photo Quest right now. Check your connection and try again.",
+    "Can't reach Kachi right now. Check your connection and try again.",
   );
 
   static const _weakPassword = AuthFailure(

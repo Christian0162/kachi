@@ -1,5 +1,5 @@
 name: photoquest
-description: "Photo Quest: do something together, take the picture, keep the memory."
+description: "Kachi: do something together, take the picture, keep the memory."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -128,7 +128,7 @@ flutter:
           weight: 500
         - asset: assets/fonts/Inter-SemiBold.ttf
           weight: 600
-    # Friendly retro script for the "Photo Quest" wordmark.
+    # Friendly retro script for the "Kachi" wordmark.
     - family: Pacifico
       fonts:
         - asset: assets/fonts/Pacifico-Regular.ttf

@@ -134,7 +134,7 @@ class KeepsakeViewModel extends _$KeepsakeViewModel {
     } catch (error, stack) {
       developer.log(
         'Saving keepsake failed',
-        name: 'photoquest.keepsake',
+        name: 'kachi.keepsake',
         error: error,
         stackTrace: stack,
       );

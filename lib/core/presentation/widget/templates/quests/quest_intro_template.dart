@@ -47,7 +47,7 @@ class QuestIntroTemplate extends StatelessWidget {
   final VoidCallback onStart;
   final VoidCallback onInvite;
 
-  /// Opens the sheet that makes a code a friend with Photo Quest can use to
+  /// Opens the sheet that makes a code a friend with Kachi can use to
   /// join this quest from their own phone.
   final VoidCallback onInviteOnline;
   final ValueChanged<QuestParticipantWithPerson> onConfirmParticipant;

@@ -1,10 +1,10 @@
-# Photo Quest — Master Engineering & Product Skill
+# Kachi — Master Engineering & Product Skill
 
 ## 1. Project Identity
 
-You are working on **Photo Quest**, a mobile application built with Flutter.
+You are working on **Kachi**, a mobile application built with Flutter.
 
-Photo Quest is a **social real-life quest and photobooth app**. It is not a
+Kachi is a **social real-life quest and photobooth app**. It is not a
 photo-editing app, a generic camera app, a public social-media feed, or a
 digital scrapbook.
 
@@ -39,7 +39,7 @@ The resulting photographs become a **Memory**.
 
 A quest can be done alone, with friends, or with someone special — and the
 memory can be shared, **privately, with the people invited to it** (§54C).
-Sharing is invite-only. Photo Quest is never a public feed.
+Sharing is invite-only. Kachi is never a public feed.
 
 The long-term purpose is to let people repeat the same Quest over time and
 see how life — and their relationships — change.
@@ -80,7 +80,7 @@ Always preserve these principles when implementing features.
 
 ## 2.1 Real Life First
 
-Photo Quest should push people out into the real world, not keep them
+Kachi should push people out into the real world, not keep them
 scrolling inside the app.
 
 The important action is people doing something together. The app's job is
@@ -180,7 +180,7 @@ Avoid:
 * generic SaaS styling
 * likes, followers, engagement scores, trending feeds, popularity mechanics
 
-Photo Quest's social model is: **invite → participate → complete together →
+Kachi's social model is: **invite → participate → complete together →
 create memory.** It is not a public feed.
 
 ---
@@ -233,7 +233,7 @@ web, including preview, image/video capture and image streaming.
 
 Do NOT use `image_picker` as the primary camera implementation.
 
-Photo Quest requires a custom photobooth camera experience.
+Kachi requires a custom photobooth camera experience.
 
 ---
 
@@ -557,7 +557,7 @@ data responsibilities, repositories as sources of truth, ViewModels for UI
 logic, dependency injection, unidirectional data flow, immutable state, and
 testing architectural components separately.
 
-Photo Quest should use:
+Kachi should use:
 
 ```text
 Presentation
@@ -1737,7 +1737,7 @@ Example:
 │      PHOTO 4       │
 │                    │
 │                    │
-│     PHOTO QUEST    │
+│     KACHI    │
 │     Sept 17 2026   │
 └────────────────────┘
 ```
@@ -1852,7 +1852,7 @@ View Participants
 
 People are private entities used to organize memories and participate in
 quests. On this device they are local contacts (friends, family, pets).
-The People screen also lists **real friends on Photo Quest** (accounts),
+The People screen also lists **real friends on Kachi** (accounts),
 added with a friend code and only once they accept (§54C); real friends can
 be invited straight to a quest or memory with no code.
 
@@ -2199,7 +2199,7 @@ explicitly treats the domain/use-case layer as conditional: introduce it
 when client-side business logic becomes sufficiently complex, rather than
 adding it mechanically to every app.
 
-For Photo Quest, use domain objects/use cases where they clarify the
+For Kachi, use domain objects/use cases where they clarify the
 Quest → Participants → Session → Memory workflow.
 
 ---
@@ -2287,7 +2287,7 @@ Built in Flutter:
 * **Real friends** (`CloudFriendsRepository`, People screen): every account
   has a private **friend code**. You enter a friend's code, they get a request
   and accept or decline (nobody is added without their OK). Friends appear in
-  People under "Friends on Photo Quest", and the invite sheets list them so
+  People under "Friends on Kachi", and the invite sheets list them so
   you can invite one to a quest or share a memory in one tap, with no code.
 * **Do a quest together** (`CloudQuestRepository`): an invite code on a pair or
   group quest. A friend enters it in the same box, is invited, and accepts or

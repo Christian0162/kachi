@@ -76,8 +76,8 @@ class FriendCodeViewModel extends _$FriendCodeViewModel {
       await ref
           .read(sharingServiceProvider)
           .shareText(
-            "Add me on Photo Quest! Here's my friend code: $code\n\n"
-            'Open Photo Quest, go to People, tap Add a friend and enter it.',
+            "Add me on Kachi! Here's my friend code: $code\n\n"
+            'Open Kachi, go to People, tap Add a friend and enter it.',
             origin: origin,
           );
       return null;

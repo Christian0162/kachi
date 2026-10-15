@@ -48,7 +48,7 @@ class MdRegisterForm extends StatelessWidget {
         Semantics(
           header: true,
           child: const Text(
-            'Create your Photo Quest account',
+            'Create your Kachi account',
             style: AppTypography.heading1,
           ),
         ),

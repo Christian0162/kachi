@@ -37,7 +37,7 @@ Future<void> main() async {
         appDatabaseProvider.overrideWithValue(database),
         initialIntroSeenProvider.overrideWithValue(introSeen),
       ],
-      child: const PhotoQuestApp(),
+      child: const KachiApp(),
     ),
   );
 }

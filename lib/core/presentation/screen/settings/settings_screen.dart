@@ -20,7 +20,7 @@ class SettingsScreen extends ConsumerWidget {
       onBackUpNow: viewModel.backUpNow,
       onOpenAccount: () => context.push(AppRoutes.account),
       onOpenLicenses: () =>
-          showLicensePage(context: context, applicationName: 'Photo Quest'),
+          showLicensePage(context: context, applicationName: 'Kachi'),
     );
   }
 }

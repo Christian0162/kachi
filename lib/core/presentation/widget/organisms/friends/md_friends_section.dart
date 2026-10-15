@@ -10,7 +10,7 @@ import '../../atoms/common/md_skeleton_box.dart';
 import '../../molecules/common/md_app_card.dart';
 import '../../molecules/common/md_section_header.dart';
 
-/// Real people on Photo Quest, above the people and pets kept on this phone:
+/// Real people on Kachi, above the people and pets kept on this phone:
 /// friends you can invite straight to a quest or memory, requests waiting for
 /// your answer, and requests you're waiting on. Added with a friend code, and
 /// only once they accept.
@@ -36,7 +36,7 @@ class MdFriendsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MdSectionHeader(
-          title: 'Friends on Photo Quest',
+          title: 'Friends on Kachi',
           subtitle:
               'Real people you can invite straight to quests and '
               'memories.',

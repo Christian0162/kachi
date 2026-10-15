@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Launch splash: Photo Quest coral with the vector logo (sharp at any
+<!-- Launch splash: Kachi coral with the vector logo (sharp at any
      density), shown while the app starts. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/ic_launcher_background" />

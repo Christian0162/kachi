@@ -17,7 +17,7 @@ import '../../molecules/people/md_people_skeleton.dart';
 
 /// The people (and pets) your quests and memories are about, grouped the
 /// way life groups them — your person, family, friends, pets. Above them,
-/// real friends on Photo Quest, added with a friend code and only once they
+/// real friends on Kachi, added with a friend code and only once they
 /// accept. Private: not a social directory.
 class PeopleTemplate extends StatelessWidget {
   const PeopleTemplate({

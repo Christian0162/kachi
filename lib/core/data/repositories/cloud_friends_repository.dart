@@ -3,7 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../domain/friends/entities/friend.dart';
 import 'cloud_support.dart';
 
-/// Real friends: people with a Photo Quest account, found with a friend code
+/// Real friends: people with a Kachi account, found with a friend code
 /// they chose to share. Nobody can search for people, so nobody can check who
 /// has an account. A request only becomes a friendship when the other person
 /// accepts. Every method throws a `SharingFailure` with copy that is safe to

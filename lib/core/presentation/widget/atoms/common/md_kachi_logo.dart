@@ -4,22 +4,22 @@ import 'package:flutter/material.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 
-/// The Photo Quest mark: three fanned photobooth prints, a heart on the front
+/// The Kachi mark: three fanned photobooth prints, a heart on the front
 /// one, and two sparkles — the same artwork as the app icon
 /// (`assets/icon/app_icon.png`) and the native launch image. Drawn in code so
 /// it stays crisp at every size and can be animated without frame assets.
 ///
 /// This is the still version. [open], [develop] and [twinkle] are the three
-/// animatable moments (see `MdAnimatedPhotoQuestLogo`); the defaults are the
+/// animatable moments (see `MdAnimatedKachiLogo`); the defaults are the
 /// finished, resting logo. Meant for the coral brand surface.
-class MdPhotoQuestLogo extends StatelessWidget {
-  const MdPhotoQuestLogo({
+class MdKachiLogo extends StatelessWidget {
+  const MdKachiLogo({
     super.key,
     this.size = 240,
     this.open = 0,
     this.develop = 1,
     this.twinkle = 0,
-    this.semanticLabel = 'Photo Quest',
+    this.semanticLabel = 'Kachi',
   });
 
   final double size;

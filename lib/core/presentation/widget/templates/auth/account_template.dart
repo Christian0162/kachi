@@ -92,7 +92,7 @@ class AccountTemplate extends StatelessWidget {
             label: 'Your name',
             initialValue: account.displayName ?? '',
             onChanged: onNameChanged,
-            helperText: 'This is how Photo Quest greets you.',
+            helperText: 'This is how Kachi greets you.',
             textInputAction: TextInputAction.done,
             onSubmitted: _nameChanged ? onSaveName : null,
           ),

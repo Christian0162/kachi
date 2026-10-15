@@ -75,7 +75,7 @@ class CloudSupport {
 
   static const _offline = SharingFailure(
     SharingFailureKind.offline,
-    "Can't reach Photo Quest right now. Check your connection and try again.",
+    "Can't reach Kachi right now. Check your connection and try again.",
   );
 
   static const _storageFull = SharingFailure(

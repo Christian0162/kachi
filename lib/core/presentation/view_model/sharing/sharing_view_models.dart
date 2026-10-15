@@ -115,8 +115,8 @@ class ShareMemoryViewModel extends _$ShareMemoryViewModel {
 
   String get inviteMessage {
     final code = state.code;
-    return "Here's my Photo Quest invite code: $code\n\n"
-        'Open Photo Quest, go to Memories, then Shared with you, and enter '
+    return "Here's my Kachi invite code: $code\n\n"
+        'Open Kachi, go to Memories, then Shared with you, and enter '
         'the code to see the memory.';
   }
 
@@ -229,9 +229,9 @@ class ShareQuestViewModel extends _$ShareQuestViewModel {
 
   String get inviteMessage {
     final code = state.code;
-    return "Come do a quest with me on Photo Quest! Here's my invite code: "
+    return "Come do a quest with me on Kachi! Here's my invite code: "
         '$code\n\n'
-        'Open Photo Quest, go to Memories, then Shared with you, and enter '
+        'Open Kachi, go to Memories, then Shared with you, and enter '
         'the code to join.';
   }
 

@@ -4,7 +4,7 @@ import 'app_colors.dart';
 import 'app_spacing.dart';
 import 'app_typography.dart';
 
-/// Material 3 as the foundation, Photo Quest as the identity. Every stock
+/// Material 3 as the foundation, Kachi as the identity. Every stock
 /// component used by the app is themed here so screens never restyle them
 /// ad hoc.
 abstract final class AppTheme {

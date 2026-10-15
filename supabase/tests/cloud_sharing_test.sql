@@ -1,4 +1,4 @@
--- Photo Quest: policy checks for quests, memories, photos, sharing, invites
+-- Kachi: policy checks for quests, memories, photos, sharing, invites
 -- and the photos bucket.
 --
 -- Run AFTER all migrations (and after rls_test.sql if you like), in the

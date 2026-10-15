@@ -1,4 +1,4 @@
--- Photo Quest: Row Level Security and Storage policy checks.
+-- Kachi: Row Level Security and Storage policy checks.
 --
 -- Run AFTER both migrations, in the Supabase SQL editor (as the default
 -- postgres role) or with psql -v ON_ERROR_STOP=1 -f rls_test.sql.

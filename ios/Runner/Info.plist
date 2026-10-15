@@ -5,15 +5,15 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Photo Quest uses your camera to take the photos, GIFs and clips for your quests.</string>
+	<string>Kachi uses your camera to take the photos, GIFs and clips for your quests.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Photo Quest saves the photos and keepsakes you choose to download to your photo library.</string>
+	<string>Kachi saves the photos and keepsakes you choose to download to your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Quest saves the photos and keepsakes you choose to download to your photo library.</string>
+	<string>Kachi saves the photos and keepsakes you choose to download to your photo library.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Photoquest</string>
+	<string>Kachi</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

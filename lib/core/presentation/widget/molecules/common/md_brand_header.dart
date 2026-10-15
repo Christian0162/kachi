@@ -4,9 +4,9 @@ import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
-import 'md_animated_photoquest_logo.dart';
+import 'md_animated_kachi_logo.dart';
 
-/// The logo with "Photo Quest" written under it: the same brand mark on the
+/// The logo with "Kachi" written under it: the same brand mark on the
 /// welcome screen and above every account form. Resizes smoothly when
 /// [logoSize] or [titleSize] change, as the welcome drawer opens.
 class MdBrandHeader extends StatelessWidget {
@@ -66,7 +66,7 @@ class MdBrandHeader extends StatelessWidget {
                 ),
               Align(
                 heightFactor: _trim,
-                child: MdAnimatedPhotoQuestLogo(
+                child: MdAnimatedKachiLogo(
                   size: size,
                   loop: true,
                   duration: const Duration(milliseconds: 3200),
@@ -86,7 +86,7 @@ class MdBrandHeader extends StatelessWidget {
                 // large text.
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  'Photo Quest',
+                  'Kachi',
                   style: AppTypography.hero.copyWith(fontSize: fontSize),
                 ),
               ),

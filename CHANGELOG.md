@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Photo Quest are recorded here. The format follows
+All notable changes to Kachi are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com), and the app uses
 [Semantic Versioning](https://semver.org).
 
@@ -37,4 +37,4 @@ All notable changes to Photo Quest are recorded here. The format follows
   memories on Wi-Fi, with a 100 MB online allowance per person and a meter.
 - Remove a memory's online copy to free space.
 - Delete your account from the Account screen, with your online photos.
-- Animated Photo Quest mark on the welcome and account screens.
+- Animated Kachi mark on the welcome and account screens.

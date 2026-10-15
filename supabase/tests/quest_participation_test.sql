@@ -1,4 +1,4 @@
--- Photo Quest: quest invitations, participants adding photos, and the storage
+-- Kachi: quest invitations, participants adding photos, and the storage
 -- allowance.
 --
 -- Run AFTER all migrations, in the Supabase SQL editor or with

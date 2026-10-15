@@ -92,7 +92,7 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();
@@ -115,7 +115,7 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();
@@ -156,7 +156,7 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();

@@ -1,7 +1,7 @@
 /// Where someone stands with the signed-in person.
 enum FriendStatus { friend, requestedMe, requestedByMe }
 
-/// A real person on Photo Quest (an account), as opposed to the local people
+/// A real person on Kachi (an account), as opposed to the local people
 /// and pets kept on this phone.
 class Friend {
   const Friend({

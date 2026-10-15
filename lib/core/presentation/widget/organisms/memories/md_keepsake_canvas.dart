@@ -243,7 +243,7 @@ class _Footer extends StatelessWidget {
         ),
         SizedBox(height: width * 0.015),
         Text(
-          '${DateFormat.yMMMd().format(date).toUpperCase()}  ·  PHOTO QUEST',
+          '${DateFormat.yMMMd().format(date).toUpperCase()}  ·  KACHI',
           maxLines: 1,
           style: AppTypography.overline.copyWith(
             color: ink,

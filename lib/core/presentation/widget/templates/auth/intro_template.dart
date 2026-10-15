@@ -75,20 +75,6 @@ class _IntroTemplateState extends State<IntroTemplate> {
     super.dispose();
   }
 
-  void _next() {
-    if (_isLast) {
-      widget.onFinished();
-      return;
-    }
-    // Reduced motion has no animation to run (and a zero duration is not
-    // allowed), so it just lands on the next page.
-    if (AppMotion.reduced(context)) {
-      _controller.jumpToPage(_page + 1);
-      return;
-    }
-    _controller.nextPage(duration: AppMotion.medium, curve: AppMotion.standard);
-  }
-
   @override
   Widget build(BuildContext context) {
     return MdAppScaffold(
@@ -132,20 +118,40 @@ class _IntroTemplateState extends State<IntroTemplate> {
                 ),
               ),
               _PageDots(count: _pages.length, current: _page),
+              // Fixed-height slot, kept empty until the last page shows the
+              // "Get started" button, so nothing jumps.
               Padding(
                 padding: const EdgeInsets.fromLTRB(
                   AppSpacing.gutter,
                   AppSpacing.lg,
                   AppSpacing.gutter,
-                  AppSpacing.lg,
+                  AppSpacing.xl,
                 ),
                 child: SizedBox(
-                  width: double.infinity,
-                  child: MdPrimaryButton(
-                    label: _isLast ? 'Get started' : 'Next',
-                    flat: true,
-                    foregroundColor: Colors.white,
-                    onPressed: _next,
+                  height: 56,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      AnimatedOpacity(
+                        duration: AppMotion.of(context, AppMotion.short),
+                        opacity: _isLast ? 1 : 0,
+                        child: IgnorePointer(
+                          ignoring: !_isLast,
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 260),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: MdPrimaryButton(
+                                label: 'Get started',
+                                flat: true,
+                                foregroundColor: Colors.white,
+                                onPressed: widget.onFinished,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -177,29 +183,31 @@ class _IntroPageView extends StatelessWidget {
                 child: Transform.rotate(
                   angle: page.tilt,
                   child: Container(
-                    width: 168,
-                    height: 200,
+                    width: 240,
+                    height: 260,
                     decoration: BoxDecoration(
-                      color: AppColors.paper,
+                      color: AppColors.softPeach,
                       borderRadius: BorderRadius.circular(AppRadius.base),
-                      boxShadow: AppShadows.print,
-                    ),
-                    padding: const EdgeInsets.all(AppSpacing.md),
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: AppColors.softPeach,
-                        borderRadius: BorderRadius.circular(AppRadius.base),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(AppSpacing.sm),
-                          child: Lottie.asset(
-                            page.animation,
-                            fit: BoxFit.contain,
-                            animate: !AppMotion.reduced(context),
-                            errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                          ),
+                      // A coral frame and a deeper shadow lift the card off
+                      // the pink backdrop.
+                      border: Border.all(color: AppColors.warmCoral, width: 3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.warmCoral.withValues(alpha: 0.35),
+                          blurRadius: 28,
+                          offset: const Offset(0, 12),
                         ),
+                        ...AppShadows.print,
+                      ],
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Padding(
+                      padding: const EdgeInsets.all(AppSpacing.sm),
+                      child: Lottie.asset(
+                        page.animation,
+                        fit: BoxFit.contain,
+                        animate: !AppMotion.reduced(context),
+                        errorBuilder: (_, _, _) => const SizedBox.shrink(),
                       ),
                     ),
                   ),
