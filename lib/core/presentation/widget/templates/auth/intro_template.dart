@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -12,13 +13,13 @@ import '../../organisms/common/md_app_scaffold.dart';
 
 class _IntroPage {
   const _IntroPage({
-    required this.icon,
+    required this.animation,
     required this.title,
     required this.body,
     required this.tilt,
   });
 
-  final IconData icon;
+  final String animation;
   final String title;
   final String body;
   final double tilt;
@@ -26,7 +27,7 @@ class _IntroPage {
 
 const _pages = [
   _IntroPage(
-    icon: Icons.explore_rounded,
+    animation: 'assets/animations/quest.lottie',
     title: 'Pick a quest',
     body:
         'Choose something fun to do in real life, with a friend, your '
@@ -34,7 +35,7 @@ const _pages = [
     tilt: -0.06,
   ),
   _IntroPage(
-    icon: Icons.photo_camera_rounded,
+    animation: 'assets/animations/selfie.lottie',
     title: 'Strike the pose',
     body:
         'The photobooth walks you through each shot with a countdown, so '
@@ -42,7 +43,7 @@ const _pages = [
     tilt: 0.05,
   ),
   _IntroPage(
-    icon: Icons.favorite_rounded,
+    animation: 'assets/animations/camera.lottie',
     title: 'Keep the memory',
     body:
         'Your photos become a private memory, shared only with the people '
@@ -190,10 +191,14 @@ class _IntroPageView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(AppRadius.base),
                       ),
                       child: Center(
-                        child: Icon(
-                          page.icon,
-                          size: 64,
-                          color: AppColors.warmCoral,
+                        child: Padding(
+                          padding: const EdgeInsets.all(AppSpacing.sm),
+                          child: Lottie.asset(
+                            page.animation,
+                            fit: BoxFit.contain,
+                            animate: !AppMotion.reduced(context),
+                            errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                          ),
                         ),
                       ),
                     ),

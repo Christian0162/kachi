@@ -66,6 +66,7 @@ dependencies:
   image_picker: ^1.2.4
   http: ^1.6.0
   connectivity_plus: ^7.3.2
+  lottie: ^3.6.1
 
 dev_dependencies:
   flutter_test:
@@ -103,6 +104,10 @@ flutter:
     - assets/images/quests/for_friends.jpg
     - assets/images/quests/for_me.jpg
     - assets/images/quests/for_life.jpg
+    # Get-started animations (dotLottie).
+    - assets/animations/quest.lottie
+    - assets/animations/selfie.lottie
+    - assets/animations/camera.lottie
 
   # Bundled (not fetched at runtime) so typography works offline. See
   # CLAUDE.md §29, §55. Licenses: assets/fonts/OFL-*.txt.
