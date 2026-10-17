@@ -37,7 +37,6 @@ class MdLoginForm extends StatelessWidget {
     return MdAuthSheetPage(
       scrollController: scrollController,
       action: MdPrimaryButton(
-        flat: true,
         foregroundColor: Colors.white,
         label: 'Log in',
         loading: form.busy,

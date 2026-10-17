@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -71,7 +72,7 @@ class MdAuthLayout extends StatelessWidget {
                           left: AppSpacing.sm,
                           top: AppSpacing.sm,
                           child: MdRoundIconButton(
-                            icon: Icons.arrow_back_rounded,
+                            icon: LucideIcons.arrowLeft,
                             tooltip: 'Back',
                             onPressed: onBack,
                           ),

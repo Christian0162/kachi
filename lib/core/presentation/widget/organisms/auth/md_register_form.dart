@@ -38,7 +38,6 @@ class MdRegisterForm extends StatelessWidget {
     return MdAuthSheetPage(
       scrollController: scrollController,
       action: MdPrimaryButton(
-        flat: true,
         foregroundColor: Colors.white,
         label: 'Create account',
         loading: form.busy,

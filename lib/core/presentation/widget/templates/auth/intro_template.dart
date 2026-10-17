@@ -143,7 +143,6 @@ class _IntroTemplateState extends State<IntroTemplate> {
                               width: double.infinity,
                               child: MdPrimaryButton(
                                 label: 'Get started',
-                                flat: true,
                                 foregroundColor: Colors.white,
                                 onPressed: widget.onFinished,
                               ),

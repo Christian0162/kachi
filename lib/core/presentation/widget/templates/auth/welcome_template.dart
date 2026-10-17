@@ -111,7 +111,6 @@ class WelcomeTemplate extends StatelessWidget {
                   children: [
                     MdPrimaryButton(
                       label: 'Create account',
-                      flat: true,
                       foregroundColor: Colors.white,
                       onPressed: onCreateAccount,
                     ),

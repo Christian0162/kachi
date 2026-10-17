@@ -27,7 +27,6 @@ void main() {
     'muted text on paper': (AppColors.textMuted, AppColors.paper),
     'muted text on peach': (AppColors.textMuted, AppColors.softPeach),
     'muted text on sunken': (AppColors.textMuted, AppColors.sunken),
-    'button label on coral': (AppColors.onCoral, AppColors.warmCoral),
     'coral ink on cream': (AppColors.coralInk, AppColors.background),
     'coral ink on peach': (AppColors.coralInk, AppColors.softPeach),
     'success ink on success surface': (
@@ -42,6 +41,10 @@ void main() {
       AppColors.warmCharcoal,
     ),
   };
+
+  test('white on coral stays for bold labels and icons only (~2.8:1)', () {
+    expect(contrast(AppColors.onCoral, AppColors.warmCoral), greaterThan(2.5));
+  });
 
   for (final MapEntry(key: name, value: (fg, bg)) in textPairs.entries) {
     test('$name meets 4.5:1', () {
