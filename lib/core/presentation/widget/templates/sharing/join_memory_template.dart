@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
@@ -29,7 +30,7 @@ class JoinMemoryTemplate extends StatelessWidget {
       showAppBar: true,
       bottomAction: MdPrimaryButton(
         label: 'See the memory',
-        icon: Icons.photo_library_outlined,
+        icon: LucideIcons.images,
         loading: form.busy,
         onPressed: form.busy ? null : onSubmit,
       ),

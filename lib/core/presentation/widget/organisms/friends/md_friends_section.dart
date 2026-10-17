@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -42,10 +43,7 @@ class MdFriendsSection extends StatelessWidget {
               'memories.',
           trailing: TextButton.icon(
             onPressed: onAddFriend,
-            icon: const Icon(
-              Icons.person_add_alt_1_rounded,
-              size: AppIconSizes.md,
-            ),
+            icon: const Icon(LucideIcons.userPlus, size: AppIconSizes.md),
             label: const Text('Add a friend'),
           ),
         ),
@@ -174,7 +172,7 @@ class _FriendRow extends StatelessWidget {
               tooltip: friend.isFriend
                   ? 'Remove ${friend.name} from your friends'
                   : 'Cancel the request to ${friend.name}',
-              icon: const Icon(Icons.close_rounded),
+              icon: const Icon(LucideIcons.x),
               onPressed: () => onRemove(friend),
             ),
           ],

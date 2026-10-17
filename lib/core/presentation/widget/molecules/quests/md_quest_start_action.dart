@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_motion.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -35,7 +36,7 @@ class MdQuestStartAction extends StatelessWidget {
               ? MdStatusPill(
                   key: const ValueKey('everyone-in'),
                   label: hint ?? "Everyone's in",
-                  icon: Icons.celebration_rounded,
+                  icon: LucideIcons.partyPopper,
                   tone: StatusTone.positive,
                 )
               : Text(
@@ -49,7 +50,7 @@ class MdQuestStartAction extends StatelessWidget {
         const SizedBox(height: AppSpacing.ms),
         MdPrimaryButton(
           label: starting ? 'Getting ready…' : "Let's start",
-          icon: Icons.photo_camera_rounded,
+          icon: LucideIcons.camera,
           loading: starting,
           onPressed: canStart ? onStart : null,
         ),

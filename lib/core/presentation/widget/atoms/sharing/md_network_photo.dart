@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -31,7 +32,7 @@ class MdNetworkPhoto extends StatelessWidget {
         color: AppColors.sunken,
         child: Center(
           child: Icon(
-            Icons.image_not_supported_outlined,
+            LucideIcons.imageOff,
             size: AppIconSizes.lg,
             color: AppColors.textMuted,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -38,7 +39,7 @@ class MdSharedMemoryTile extends StatelessWidget {
               child: cover == null
                   ? const ColoredBox(
                       color: AppColors.sunken,
-                      child: Icon(Icons.photo_outlined),
+                      child: Icon(LucideIcons.image),
                     )
                   : MdNetworkPhoto(url: cover),
             ),
@@ -65,7 +66,7 @@ class MdSharedMemoryTile extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(Icons.chevron_right_rounded),
+          const Icon(LucideIcons.chevronRight),
         ],
       ),
     );

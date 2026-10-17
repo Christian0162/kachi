@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -125,7 +126,7 @@ class SharedMemoryTemplate extends StatelessWidget {
                 const SizedBox(height: AppSpacing.lg),
                 MdPrimaryButton(
                   label: 'Add your photos',
-                  icon: Icons.add_photo_alternate_outlined,
+                  icon: LucideIcons.imagePlus,
                   loading: addingPhotos,
                   onPressed: addingPhotos ? null : onAddPhotos,
                 ),
@@ -133,7 +134,7 @@ class SharedMemoryTemplate extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               MdSecondaryButton(
                 label: 'Remove from my list',
-                icon: Icons.visibility_off_outlined,
+                icon: LucideIcons.eyeOff,
                 onPressed: onLeave,
               ),
             ],
@@ -199,7 +200,7 @@ class _PhotoTile extends StatelessWidget {
               if (photo.isVideo)
                 const Center(
                   child: Icon(
-                    Icons.play_circle_fill_rounded,
+                    LucideIcons.circlePlay,
                     size: AppIconSizes.hero,
                     color: AppColors.onCamera,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_shadows.dart';
@@ -119,7 +120,7 @@ class _MdPhotoAlbumState extends State<MdPhotoAlbum> {
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
-                        Icons.open_in_full_rounded,
+                        LucideIcons.maximize2,
                         size: AppIconSizes.sm,
                         color: AppColors.onCamera,
                       ),

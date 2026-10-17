@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -181,7 +182,7 @@ class _ViewShotsButton extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Icon(
-                    Icons.photo_library_outlined,
+                    LucideIcons.images,
                     size: AppIconSizes.sm,
                     color: AppColors.onCamera,
                   ),

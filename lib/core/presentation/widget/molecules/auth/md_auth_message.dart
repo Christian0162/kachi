@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -32,9 +33,7 @@ class MdAuthMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(
-                isError
-                    ? Icons.error_outline_rounded
-                    : Icons.mark_email_read_outlined,
+                isError ? LucideIcons.circleAlert : LucideIcons.mailCheck,
                 size: AppIconSizes.md,
                 color: isError ? AppColors.error : AppColors.successInk,
               ),

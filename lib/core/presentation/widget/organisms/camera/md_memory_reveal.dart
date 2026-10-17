@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../config/constant/app_motion.dart';
@@ -135,7 +136,7 @@ class _MdMemoryRevealState extends State<MdMemoryReveal>
                   children: [
                     const MdSticker(
                       label: 'Quest complete!',
-                      icon: Icons.auto_awesome_rounded,
+                      icon: LucideIcons.sparkles,
                       tilt: -0.07,
                     ),
                     const SizedBox(height: AppSpacing.sm),
@@ -229,7 +230,7 @@ class _MdMemoryRevealState extends State<MdMemoryReveal>
                   children: [
                     MdPrimaryButton(
                       label: 'Keep this memory',
-                      icon: Icons.favorite_rounded,
+                      icon: LucideIcons.heart,
                       loading: widget.keepsake?.isSaving ?? false,
                       onPressed: () => widget.onKeep(_render),
                     ),
@@ -237,7 +238,7 @@ class _MdMemoryRevealState extends State<MdMemoryReveal>
                       const SizedBox(height: AppSpacing.sm),
                       MdSecondaryButton(
                         label: 'Decorate your print',
-                        icon: Icons.auto_awesome_rounded,
+                        icon: LucideIcons.sparkles,
                         onPressed: widget.onDecorate,
                       ),
                     ],

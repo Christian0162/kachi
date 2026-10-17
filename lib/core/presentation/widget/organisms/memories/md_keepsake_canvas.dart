@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/semantics.dart';
 import 'package:intl/intl.dart';
 
@@ -333,7 +334,7 @@ class _PlacedStickerViewState extends State<_PlacedStickerView> {
                 AppHaptics.remove();
                 widget.onRemove();
               },
-              icon: const Icon(Icons.close_rounded, size: AppIconSizes.sm),
+              icon: const Icon(LucideIcons.x, size: AppIconSizes.sm),
               style: IconButton.styleFrom(
                 backgroundColor: AppColors.warmCharcoal,
                 foregroundColor: AppColors.warmCream,

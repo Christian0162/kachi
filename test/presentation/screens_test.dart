@@ -99,10 +99,10 @@ void main() {
 
     expect(find.text("Today's quest"), findsOneWidget);
     expect(find.text("Let's do it"), findsOneWidget);
-    expect(find.bySemanticsLabel(RegExp('^Start a quest')), findsOneWidget);
+    expect(find.bySemanticsLabel(RegExp('^Create a quest')), findsOneWidget);
   });
 
-  testWidgets('the quest prompt floats on every tab, tucks away while '
+  testWidgets('the dock floats on every tab, tucks away while '
       'scrolling down, and returns on the way up', (tester) async {
     final db = AppDatabase.forTesting(NativeDatabase.memory());
     addTearDown(db.close);
@@ -121,20 +121,22 @@ void main() {
     await tester.pumpAndSettle();
 
     final prompt = find.byType(MdQuestPromptBar);
+    final dock = find.byTooltip('Memories');
     for (final tab in ['People', 'Memories', 'Home']) {
       await tester.tap(find.bySemanticsLabel(tab));
       await tester.pumpAndSettle();
       expect(prompt.hitTestable(), findsOneWidget, reason: 'on $tab');
+      expect(dock.hitTestable(), findsOneWidget, reason: 'on $tab');
     }
 
     final page = find.byType(Scrollable).first;
     await tester.drag(page, const Offset(0, -200));
     await tester.pumpAndSettle();
-    expect(prompt.hitTestable(), findsNothing);
+    expect(dock.hitTestable(), findsNothing);
 
     await tester.drag(page, const Offset(0, 100));
     await tester.pumpAndSettle();
-    expect(prompt.hitTestable(), findsOneWidget);
+    expect(dock.hitTestable(), findsOneWidget);
   });
 
   testWidgets('the nav dock fits a small phone at large text on every tab', (

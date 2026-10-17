@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -176,7 +177,7 @@ class _MdCaptureBodyState extends State<MdCaptureBody>
               child: Row(
                 children: [
                   MdCameraIconButton(
-                    icon: Icons.close_rounded,
+                    icon: LucideIcons.x,
                     tooltip: 'Leave quest',
                     onPressed: phase == CapturePhase.finishing
                         ? null
@@ -202,7 +203,7 @@ class _MdCaptureBodyState extends State<MdCaptureBody>
                   ],
                   const SizedBox(width: AppSpacing.sm),
                   MdCameraIconButton(
-                    icon: Icons.tune_rounded,
+                    icon: LucideIcons.slidersHorizontal,
                     tooltip: 'Booth settings',
                     onPressed: phase == CapturePhase.instruction
                         ? widget.onOpenSettings

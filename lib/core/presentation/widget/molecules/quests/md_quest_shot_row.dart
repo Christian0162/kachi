@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -42,7 +43,7 @@ class MdQuestShotRow extends StatelessWidget {
                 child: SizedBox.square(
                   dimension: AppTouch.minTarget,
                   child: Icon(
-                    Icons.drag_indicator_rounded,
+                    LucideIcons.gripVertical,
                     color: AppColors.textMuted,
                   ),
                 ),
@@ -70,7 +71,7 @@ class MdQuestShotRow extends StatelessWidget {
           ),
           IconButton(
             tooltip: 'Remove shot ${index + 1}',
-            icon: const Icon(Icons.close_rounded, size: AppIconSizes.md),
+            icon: const Icon(LucideIcons.x, size: AppIconSizes.md),
             onPressed: onRemove,
           ),
         ],

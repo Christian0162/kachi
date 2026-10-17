@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -69,7 +70,7 @@ class PeopleTemplate extends StatelessWidget {
                     title: 'People',
                     subtitle: 'The people (and pets) your memories are about.',
                     trailing: MdRoundIconButton(
-                      icon: Icons.person_add_alt_1_rounded,
+                      icon: LucideIcons.userPlus,
                       tooltip: 'Add someone',
                       backgroundColor: AppColors.warmCoral,
                       foregroundColor: AppColors.onCoral,
@@ -120,14 +121,14 @@ class PeopleTemplate extends StatelessWidget {
                       SliverFillRemaining(
                         hasScrollBody: false,
                         child: MdEmptyState(
-                          icon: Icons.people_alt_rounded,
+                          icon: LucideIcons.users,
                           title: 'Who do you make memories with?',
                           message:
                               'Add your partner, family, friends — or your '
                               'dog. You can invite them to quests.',
                           action: MdPrimaryButton(
                             label: 'Add someone',
-                            icon: Icons.person_add_alt_1_rounded,
+                            icon: LucideIcons.userPlus,
                             expand: false,
                             onPressed: onAddPerson,
                           ),

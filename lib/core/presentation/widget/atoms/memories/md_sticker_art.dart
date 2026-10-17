@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_typography.dart';
@@ -15,20 +16,17 @@ class MdStickerArt extends StatelessWidget {
   final double size;
 
   static (IconData, Color) _iconSticker(StickerType type) => switch (type) {
-    StickerType.heart => (Icons.favorite_rounded, AppColors.warmCoral),
-    StickerType.star => (Icons.star_rounded, AppColors.filmYellow),
-    StickerType.sparkle => (Icons.auto_awesome_rounded, AppColors.filmYellow),
-    StickerType.sun => (Icons.wb_sunny_rounded, AppColors.filmYellow),
-    StickerType.flower => (Icons.local_florist_rounded, AppColors.warmCoral),
-    StickerType.camera => (Icons.photo_camera_rounded, AppColors.warmCharcoal),
-    StickerType.party => (Icons.celebration_rounded, AppColors.warmCoral),
-    StickerType.crown => (
-      Icons.workspace_premium_rounded,
-      AppColors.filmYellow,
-    ),
-    StickerType.paw => (Icons.pets_rounded, AppColors.inkBrown),
-    StickerType.music => (Icons.music_note_rounded, AppColors.softGreen),
-    _ => (Icons.favorite_rounded, AppColors.warmCoral),
+    StickerType.heart => (LucideIcons.heart, AppColors.warmCoral),
+    StickerType.star => (LucideIcons.star, AppColors.filmYellow),
+    StickerType.sparkle => (LucideIcons.sparkles, AppColors.filmYellow),
+    StickerType.sun => (LucideIcons.sun, AppColors.filmYellow),
+    StickerType.flower => (LucideIcons.flower2, AppColors.warmCoral),
+    StickerType.camera => (LucideIcons.camera, AppColors.warmCharcoal),
+    StickerType.party => (LucideIcons.partyPopper, AppColors.warmCoral),
+    StickerType.crown => (LucideIcons.award, AppColors.filmYellow),
+    StickerType.paw => (LucideIcons.pawPrint, AppColors.inkBrown),
+    StickerType.music => (LucideIcons.music, AppColors.softGreen),
+    _ => (LucideIcons.heart, AppColors.warmCoral),
   };
 
   @override

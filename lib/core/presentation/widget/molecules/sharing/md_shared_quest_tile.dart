@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -32,11 +33,7 @@ class MdSharedQuestTile extends StatelessWidget {
       semanticLabel: '${quest.title}. $subtitle.',
       child: Row(
         children: [
-          Icon(
-            invited
-                ? Icons.mark_email_unread_outlined
-                : Icons.auto_awesome_outlined,
-          ),
+          Icon(invited ? LucideIcons.mail : LucideIcons.sparkles),
           const SizedBox(width: AppSpacing.md),
           Expanded(
             child: Column(
@@ -58,7 +55,7 @@ class MdSharedQuestTile extends StatelessWidget {
               padding: const EdgeInsets.only(right: AppSpacing.xs),
               child: Text('Reply', style: AppTypography.label),
             ),
-          const Icon(Icons.chevron_right_rounded),
+          const Icon(LucideIcons.chevronRight),
         ],
       ),
     );

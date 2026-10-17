@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_constants.dart';
@@ -138,7 +139,7 @@ class QuestIntroTemplate extends StatelessWidget {
                     label: questTypeLabel(quest.type),
                   ),
                   MdIconFact(
-                    icon: Icons.photo_camera_outlined,
+                    icon: LucideIcons.camera,
                     label: data.shots.length == 1
                         ? '1 photo'
                         : '${data.shots.length} photos',

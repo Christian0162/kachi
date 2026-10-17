@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -14,9 +15,9 @@ class MdShotKindBadge extends StatelessWidget {
   final String kind;
 
   static (IconData, String)? describe(String kind) => switch (kind) {
-    PhotoKind.gif => (Icons.gif_box_rounded, 'GIF'),
-    PhotoKind.boomerang => (Icons.all_inclusive_rounded, 'Boomerang'),
-    PhotoKind.video => (Icons.threesixty_rounded, '360°'),
+    PhotoKind.gif => (LucideIcons.film, 'GIF'),
+    PhotoKind.boomerang => (LucideIcons.infinity, 'Boomerang'),
+    PhotoKind.video => (LucideIcons.rotate3d, '360°'),
     _ => null,
   };
 

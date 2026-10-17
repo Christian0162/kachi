@@ -67,6 +67,7 @@ dependencies:
   http: ^1.6.0
   connectivity_plus: ^7.3.2
   lottie: ^3.6.1
+  lucide_icons_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -108,6 +109,13 @@ flutter:
     - assets/animations/quest.lottie
     - assets/animations/selfie.lottie
     - assets/animations/camera.lottie
+    # Profile avatars to pick from. Credits: CREDITS.md there.
+    - assets/images/avatars/animals/
+    - assets/images/avatars/travel/
+    - assets/images/avatars/food/
+    - assets/images/avatars/nature/
+    - assets/images/avatars/fun/
+    - assets/images/avatars/LICENSE-FluentUI-Emoji.txt
 
   # Bundled (not fetched at runtime) so typography works offline. See
   # CLAUDE.md §29, §55. Licenses: assets/fonts/OFL-*.txt.

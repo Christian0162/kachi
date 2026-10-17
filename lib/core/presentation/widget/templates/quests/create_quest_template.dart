@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_motion.dart';
@@ -107,7 +108,7 @@ class _CreateQuestTemplateState extends State<CreateQuestTemplate> {
       title: 'New quest',
       leading: IconButton(
         tooltip: 'Close',
-        icon: const Icon(Icons.close_rounded),
+        icon: const Icon(LucideIcons.x),
         onPressed: widget.onClose,
       ),
       onBackBlocked: widget.onBack,
@@ -135,7 +136,7 @@ class _CreateQuestTemplateState extends State<CreateQuestTemplate> {
               Expanded(
                 child: MdPrimaryButton(
                   label: isLast ? 'Create quest' : 'Continue',
-                  icon: isLast ? Icons.auto_awesome_rounded : null,
+                  icon: isLast ? LucideIcons.sparkles : null,
                   loading: draft.isSubmitting,
                   onPressed: blocker != null
                       ? null

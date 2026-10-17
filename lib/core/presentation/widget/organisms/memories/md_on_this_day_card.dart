@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -44,7 +45,7 @@ class MdOnThisDayCard extends StatelessWidget {
           left: AppSpacing.md,
           child: MdSticker(
             label: _ago,
-            icon: Icons.history_rounded,
+            icon: LucideIcons.history,
             tilt: -0.05,
             delay: const Duration(milliseconds: 300),
           ),
@@ -78,7 +79,7 @@ class MdOnThisDayCard extends StatelessWidget {
                   ),
                   const SizedBox(width: AppSpacing.xs),
                   const Icon(
-                    Icons.arrow_forward_rounded,
+                    LucideIcons.arrowRight,
                     size: AppIconSizes.sm,
                     color: AppColors.filmYellow,
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -106,7 +107,7 @@ class _MdNetworkVideoState extends State<MdNetworkVideo> {
             if (_ready && !playing)
               const Center(
                 child: Icon(
-                  Icons.play_circle_fill_rounded,
+                  LucideIcons.circlePlay,
                   size: AppIconSizes.hero,
                   color: AppColors.onCamera,
                 ),

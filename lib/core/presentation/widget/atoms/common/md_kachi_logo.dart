@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 
@@ -131,7 +132,7 @@ class _Print extends StatelessWidget {
                   child: Transform.scale(
                     scale: 0.6 + 0.4 * develop,
                     child: Icon(
-                      Icons.favorite_rounded,
+                      LucideIcons.heart,
                       size: w * 0.5,
                       color: AppColors.warmCoral,
                     ),

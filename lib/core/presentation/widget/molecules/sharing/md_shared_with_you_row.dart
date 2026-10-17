@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
@@ -22,7 +23,7 @@ class MdSharedWithYouRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Icon(Icons.group_outlined),
+          const Icon(LucideIcons.users),
           const SizedBox(width: AppSpacing.ms),
           Expanded(
             child: Column(
@@ -36,7 +37,7 @@ class MdSharedWithYouRow extends StatelessWidget {
               ],
             ),
           ),
-          const Icon(Icons.chevron_right_rounded),
+          const Icon(LucideIcons.chevronRight),
         ],
       ),
     );

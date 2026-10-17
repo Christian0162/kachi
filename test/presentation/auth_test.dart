@@ -2,6 +2,7 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:photoquest/core/presentation/widget/atoms/people/md_profile_button.dart';
 import 'package:photoquest/app.dart';
 import 'package:photoquest/config/constant/app_theme.dart';
 import 'package:photoquest/core/data/database/app_database.dart'
@@ -416,7 +417,7 @@ void main() {
         profile: profile,
       );
 
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
 
@@ -435,7 +436,7 @@ void main() {
       final auth = FakeAuthRepository(signedIn: true);
       await _pumpApp(tester, auth, profile: FakeProfileRepository());
 
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
       await tester.ensureVisible(find.text('Log out'));
@@ -449,7 +450,7 @@ void main() {
 
   group('delete account', () {
     Future<void> openAccount(WidgetTester tester) async {
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
       await tester.ensureVisible(find.text('Delete my account'));

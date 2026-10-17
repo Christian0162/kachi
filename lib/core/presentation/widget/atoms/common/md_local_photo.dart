@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -17,7 +18,7 @@ class MdLocalPhoto extends StatelessWidget {
     this.alignment = Alignment.center,
     this.decodeWidth,
     this.semanticLabel,
-    this.placeholderIcon = Icons.photo_rounded,
+    this.placeholderIcon = LucideIcons.image,
   });
 
   final String? path;
@@ -68,7 +69,7 @@ class MdLocalPhoto extends StatelessWidget {
             );
           },
           errorBuilder: (context, error, stack) =>
-              MdPhotoPlaceholder(icon: Icons.broken_image_outlined),
+              MdPhotoPlaceholder(icon: LucideIcons.imageOff),
         );
       },
     );
@@ -79,7 +80,7 @@ class MdLocalPhoto extends StatelessWidget {
 class MdPhotoPlaceholder extends StatelessWidget {
   const MdPhotoPlaceholder({
     super.key,
-    this.icon = Icons.photo_rounded,
+    this.icon = LucideIcons.image,
     this.color = AppColors.softPeach,
   });
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_constants.dart';
@@ -57,7 +58,7 @@ class MdInviteCodeCard extends StatelessWidget {
                 Expanded(
                   child: MdSecondaryButton(
                     label: 'Copy',
-                    icon: Icons.copy_rounded,
+                    icon: LucideIcons.copy,
                     onPressed: onCopy,
                   ),
                 ),
@@ -65,7 +66,7 @@ class MdInviteCodeCard extends StatelessWidget {
                 Expanded(
                   child: MdPrimaryButton(
                     label: 'Send',
-                    icon: Icons.ios_share_rounded,
+                    icon: LucideIcons.share2,
                     onPressed: onSend,
                   ),
                 ),

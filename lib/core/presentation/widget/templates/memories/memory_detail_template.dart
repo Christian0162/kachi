@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -77,14 +78,14 @@ class MemoryDetailTemplate extends StatelessWidget {
         if (data != null)
           IconButton(
             tooltip: 'Invite a friend',
-            icon: const Icon(Icons.person_add_alt_1_rounded),
+            icon: const Icon(LucideIcons.userPlus),
             onPressed: onInviteFriend,
           ),
         if (data?.stripPath != null)
           Builder(
             builder: (context) => IconButton(
               tooltip: 'Share photo strip',
-              icon: const Icon(Icons.ios_share_rounded),
+              icon: const Icon(LucideIcons.share2),
               onPressed: () {
                 final box = context.findRenderObject() as RenderBox?;
                 onShare(
@@ -100,7 +101,7 @@ class MemoryDetailTemplate extends StatelessWidget {
           ? null
           : MdPrimaryButton(
               label: 'Do this again',
-              icon: Icons.replay_rounded,
+              icon: LucideIcons.rotateCcw,
               onPressed: () => onDoAgain(questId),
             ),
       body: detail.when(
@@ -225,7 +226,7 @@ class MemoryDetailTemplate extends StatelessWidget {
                   trailing: TextButton.icon(
                     onPressed: onDecorate,
                     icon: const Icon(
-                      Icons.auto_awesome_rounded,
+                      LucideIcons.sparkles,
                       size: AppIconSizes.md,
                     ),
                     label: const Text('Decorate'),
@@ -260,7 +261,7 @@ class MemoryDetailTemplate extends StatelessWidget {
                 Center(
                   child: MdSecondaryButton(
                     label: 'Save to photos',
-                    icon: Icons.download_rounded,
+                    icon: LucideIcons.download,
                     expand: false,
                     onPressed: onDownloadStrip,
                   ),

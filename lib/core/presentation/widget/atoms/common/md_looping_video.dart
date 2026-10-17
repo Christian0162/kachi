@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -125,7 +126,7 @@ class _MdLoopingVideoState extends State<MdLoopingVideo> {
                   child: Padding(
                     padding: EdgeInsets.all(AppSpacing.ms),
                     child: Icon(
-                      Icons.play_arrow_rounded,
+                      LucideIcons.play,
                       color: AppColors.onCamera,
                       size: 36,
                     ),

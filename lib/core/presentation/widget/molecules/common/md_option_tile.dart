@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -56,7 +57,7 @@ class MdOptionTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (selected) ...[
-                    const Icon(Icons.check_rounded, size: AppIconSizes.sm),
+                    const Icon(LucideIcons.check, size: AppIconSizes.sm),
                     const SizedBox(width: AppSpacing.xxs),
                   ],
                   Flexible(

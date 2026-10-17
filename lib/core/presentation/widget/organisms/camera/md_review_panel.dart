@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_shadows.dart';
@@ -72,13 +73,13 @@ class MdReviewPanel extends StatelessWidget {
         const SizedBox(height: AppSpacing.md),
         MdPrimaryButton(
           label: state.isLastShot ? 'Keep it & finish' : 'Keep it',
-          icon: Icons.check_rounded,
+          icon: LucideIcons.check,
           onPressed: onKeep,
         ),
         const SizedBox(height: AppSpacing.sm),
         MdSecondaryButton(
           label: 'Retake',
-          icon: Icons.replay_rounded,
+          icon: LucideIcons.rotateCcw,
           onDark: true,
           onPressed: onRetake,
         ),

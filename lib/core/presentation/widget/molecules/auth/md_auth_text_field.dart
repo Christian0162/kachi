@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
@@ -97,9 +98,7 @@ class _MdAuthTextFieldState extends State<MdAuthTextField> {
                 child: IconButton(
                   tooltip: widget.obscured ? 'Show password' : 'Hide password',
                   icon: Icon(
-                    widget.obscured
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
+                    widget.obscured ? LucideIcons.eye : LucideIcons.eyeOff,
                   ),
                   onPressed: toggle,
                 ),

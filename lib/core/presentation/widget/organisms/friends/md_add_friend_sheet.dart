@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -99,7 +100,7 @@ class MdAddFriendSheet extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: TextButton.icon(
                   onPressed: code.resetting ? null : onReset,
-                  icon: const Icon(Icons.refresh_rounded),
+                  icon: const Icon(LucideIcons.refreshCw),
                   label: Text(
                     code.resetting ? 'Getting a new code…' : 'Get a new code',
                   ),
@@ -140,7 +141,7 @@ class MdAddFriendSheet extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             MdPrimaryButton(
               label: 'Send request',
-              icon: Icons.person_add_alt_1_rounded,
+              icon: LucideIcons.userPlus,
               loading: form.busy,
               onPressed: form.busy ? null : onSubmit,
             ),

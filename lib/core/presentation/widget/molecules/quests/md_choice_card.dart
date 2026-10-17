@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -49,7 +50,7 @@ class MdChoiceCard extends StatelessWidget {
           child: Column(
             children: [
               Icon(
-                selected ? Icons.check_circle_rounded : icon,
+                selected ? LucideIcons.circleCheck : icon,
                 size: AppIconSizes.xl,
               ),
               const SizedBox(height: AppSpacing.sm),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -193,11 +194,7 @@ class _Rail extends StatelessWidget {
       width: 22,
       child: Column(
         children: [
-          const Icon(
-            Icons.photo_camera_outlined,
-            size: 12,
-            color: AppColors.inkBrown,
-          ),
+          const Icon(LucideIcons.camera, size: 12, color: AppColors.inkBrown),
           const SizedBox(height: AppSpacing.xs),
           RotatedBox(
             quarterTurns: 1,

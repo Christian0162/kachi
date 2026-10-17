@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -90,14 +91,14 @@ class _KeepsakeTemplateState extends State<KeepsakeTemplate> {
       title: 'Make it yours',
       leading: IconButton(
         tooltip: 'Close',
-        icon: const Icon(Icons.close_rounded),
+        icon: const Icon(LucideIcons.x),
         onPressed: widget.onClose,
       ),
       bottomAction: design == null
           ? null
           : MdPrimaryButton(
               label: widget.doneLabel,
-              icon: Icons.check_rounded,
+              icon: LucideIcons.check,
               loading: design.isSaving,
               onPressed: () => widget.onDone(_render),
             ),

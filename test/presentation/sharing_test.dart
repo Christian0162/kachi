@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:photoquest/core/presentation/widget/atoms/people/md_profile_button.dart';
 import 'package:photoquest/app.dart';
 import 'package:photoquest/config/constant/app_theme.dart';
 import 'package:photoquest/core/data/database/app_database.dart'
@@ -925,7 +926,7 @@ void main() {
 
   group('backup in Settings', () {
     Future<void> openSettings(WidgetTester tester) async {
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
     }
 
