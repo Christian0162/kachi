@@ -8,6 +8,9 @@ import 'settings_template.dart';
 @Preview(name: 'Settings', group: 'templates', size: previewPhoneSize)
 Widget settingsTemplatePreview() => MdAppWidgetPreview(
   child: SettingsTemplate(
+    name: 'Christian',
+    avatarId: 'animals/fox',
+    onOpenProfile: () {},
     backup: const BackupState(),
     onBackupToggled: (_) {},
     onBackUpNow: () {},

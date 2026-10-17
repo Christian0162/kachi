@@ -1,6 +1,8 @@
+import '../../../config/constant/app_avatars.dart';
+import '../../domain/people/enum/mood.dart';
 import '../database/daos/settings_dao.dart';
 
-/// Photobooth preferences, remembered on this device.
+/// Preferences (photobooth, mood, backup), remembered on this device.
 class SettingsRepository {
   SettingsRepository(this._dao);
 
@@ -11,6 +13,8 @@ class SettingsRepository {
   static const _backupKey = 'backup.enabled';
   static const _withheldKey = 'backup.withheld';
   static const _introSeenKey = 'onboarding.intro_seen';
+  static const _moodKey = 'profile.mood';
+  static const _avatarKey = 'profile.avatar';
 
   static const countdownChoices = [3, 5, 10];
 
@@ -61,6 +65,21 @@ class SettingsRepository {
     if (changed) await _dao.setValue(_withheldKey, ids.join(','));
   }
 
+  /// How the device owner said they feel, or null if they never said.
+  Future<Mood?> getMood() async => Mood.fromName(await _dao.getValue(_moodKey));
+
+  Future<void> setMood(Mood? mood) => _dao.setValue(_moodKey, mood?.name ?? '');
+
+  /// The avatar id the device owner picked, or null if they never did.
+  Future<String?> getAvatar() async {
+    final saved = await _dao.getValue(_avatarKey);
+    return AppAvatars.ids.contains(saved) ? saved : null;
+  }
+
+  Future<void> setAvatar(String avatarId) =>
+      _dao.setValue(_avatarKey, avatarId);
+
+  /// The saved value if it's still a valid choice, else the first one.
   Future<int> _readChoice(String key, List<int> choices) async {
     final saved = int.tryParse(await _dao.getValue(key) ?? '');
     return choices.contains(saved) ? saved! : choices.first;
