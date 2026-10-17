@@ -8,7 +8,9 @@ import '../../core/presentation/screen/auth/auth_screens.dart';
 import '../../core/presentation/screen/auth/intro_screen.dart';
 import '../../core/presentation/screen/camera/capture_screen.dart';
 import '../../core/presentation/screen/camera/memory_reveal_screen.dart';
+import '../../core/presentation/screen/camera/moment_capture_screen.dart';
 import '../../core/presentation/screen/home/home_screen.dart';
+import '../../core/presentation/screen/home/moment_viewer_screen.dart';
 import '../../core/presentation/screen/memories/keepsake_screen.dart';
 import '../../core/presentation/screen/memories/memories_screen.dart';
 import '../../core/presentation/screen/memories/memory_detail_screen.dart';
@@ -16,6 +18,7 @@ import '../../core/presentation/screen/people/people_screen.dart';
 import '../../core/presentation/screen/quests/create_quest_screen.dart';
 import '../../core/presentation/screen/quests/quest_intro_screen.dart';
 import '../../core/presentation/screen/quests/quest_selection_screen.dart';
+import '../../core/presentation/screen/settings/profile_settings_screen.dart';
 import '../../core/presentation/screen/settings/settings_screen.dart';
 import '../../core/presentation/screen/sharing/sharing_screens.dart';
 import '../../core/presentation/view_model/auth/auth_session_view_model.dart';
@@ -53,7 +56,11 @@ abstract final class AppRoutes {
   static const forgotPassword = '/forgot-password';
   static const verifyEmail = '/verify-email';
   static const resetPassword = '/reset-password';
+  static const profileSettings = '/settings/profile';
+  static const momentCapture = '/moments/new';
+  static const momentView = '/moments/:momentId';
 
+  static String momentViewPath(String momentId) => '/moments/$momentId';
   static String questDetailPath(String questId) => '/quests/$questId';
   static String capturePath(String sessionId) => '/capture/$sessionId';
   static String memoryRevealPath(String sessionId) =>
@@ -177,6 +184,14 @@ GoRouter appRouter(Ref ref) {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: AppRoutes.quests,
+                builder: (context, state) => const QuestSelectionScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: AppRoutes.memories,
                 builder: (context, state) => const MemoriesScreen(),
               ),
@@ -191,10 +206,6 @@ GoRouter appRouter(Ref ref) {
             ],
           ),
         ],
-      ),
-      GoRoute(
-        path: AppRoutes.quests,
-        builder: (context, state) => const QuestSelectionScreen(),
       ),
       GoRoute(
         path: AppRoutes.createQuest,
@@ -241,6 +252,20 @@ GoRouter appRouter(Ref ref) {
       GoRoute(
         path: AppRoutes.settings,
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.profileSettings,
+        builder: (context, state) => const ProfileSettingsScreen(),
+      ),
+      // `/moments/new` first, so it is not read as a moment id.
+      GoRoute(
+        path: AppRoutes.momentCapture,
+        builder: (context, state) => const MomentCaptureScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.momentView,
+        builder: (context, state) =>
+            MomentViewerScreen(momentId: state.pathParameters['momentId']!),
       ),
     ],
   );

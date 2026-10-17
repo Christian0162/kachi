@@ -10,4 +10,7 @@ abstract final class AppStoragePaths {
   static const videos = 'photos/videos';
 
   static const strips = 'photos/strips';
+
+  /// "Your Day" moments, which are removed after 24 hours.
+  static const moments = 'photos/moments';
 }

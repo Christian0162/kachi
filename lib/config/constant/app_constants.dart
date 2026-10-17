@@ -17,4 +17,10 @@ abstract final class AppConstants {
   /// The largest file the `photos` bucket accepts. Bigger clips are shared
   /// as their still poster instead.
   static const sharedFileMaxBytes = 10 * 1024 * 1024;
+
+  /// How long a "Your Day" moment stays before it disappears.
+  static const dayMomentLifetime = Duration(hours: 24);
+
+  /// The longest caption a moment can carry.
+  static const dayMomentCaptionLimit = 80;
 }

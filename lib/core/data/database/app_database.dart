@@ -1,12 +1,14 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 
+import 'daos/day_moment_dao.dart';
 import 'daos/memory_dao.dart';
 import 'daos/people_dao.dart';
 import 'daos/quest_dao.dart';
 import 'daos/settings_dao.dart';
 import 'seed/default_quests_seed.dart';
 import 'tables/app_settings_table.dart';
+import 'tables/day_moments_table.dart';
 import 'tables/memories_table.dart';
 import 'tables/memory_people_table.dart';
 import 'tables/people_table.dart';
@@ -29,8 +31,9 @@ part 'app_database.g.dart';
     Photos,
     MemoryPeople,
     AppSettings,
+    DayMoments,
   ],
-  daos: [QuestDao, MemoryDao, PeopleDao, SettingsDao],
+  daos: [QuestDao, MemoryDao, PeopleDao, SettingsDao, DayMomentDao],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
@@ -38,7 +41,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase.forTesting(super.executor);
 
   @override
-  int get schemaVersion => 5;
+  int get schemaVersion => 6;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -69,6 +72,10 @@ class AppDatabase extends _$AppDatabase {
       // v4 -> v5: 360° clips remember whether the viewer must mirror them.
       if (from < 5) {
         await m.addColumn(photos, photos.mirrored);
+      }
+      // v5 -> v6: private "Your Day" moments that last 24 hours.
+      if (from < 6) {
+        await m.createTable(dayMoments);
       }
     },
     // Future schema changes add a step here rather than recreating
