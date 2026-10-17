@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
+import '../../../../domain/moments/entities/day_moment.dart';
+import '../../../../domain/people/enum/mood.dart';
 import '../../../../domain/quests/entities/quest.dart';
 import '../../../types/memories/memory_summary.dart';
 import '../../../types/quests/quest_needing_confirmation.dart';
@@ -18,6 +21,7 @@ import '../../organisms/quests/md_pending_quest_tray.dart';
 import '../../organisms/memories/md_recent_memories_section.dart';
 import '../../organisms/quests/md_today_quest_card.dart';
 import '../../molecules/home/md_home_greeting.dart';
+import '../../organisms/people/md_day_moments_row.dart';
 import '../../atoms/common/md_gutter_padding.dart';
 
 /// Answers "What can we do today?" — a greeting, one hero Quest, anything
@@ -32,8 +36,15 @@ class HomeTemplate extends StatelessWidget {
     required this.pendingQuests,
     required this.memories,
     this.onThisDay = const AsyncData(null),
+    this.now,
     required this.onRefresh,
-    required this.onOpenSettings,
+    this.mood,
+    this.avatarId,
+    this.moments = const AsyncData([]),
+    required this.onOpenMood,
+    required this.onOpenProfile,
+    required this.onAddMoment,
+    required this.onOpenMoment,
     required this.onOpenQuest,
     required this.onOpenMemory,
     required this.onSeeAllMemories,
@@ -50,7 +61,20 @@ class HomeTemplate extends StatelessWidget {
 
   final AsyncValue<MemorySummary?> onThisDay;
   final Future<void> Function() onRefresh;
-  final VoidCallback onOpenSettings;
+
+  /// The moment to treat as "now". Previews pin it; the app leaves it null.
+  final DateTime? now;
+  final Mood? mood;
+
+  /// The avatar picked for the profile button, if any.
+  final String? avatarId;
+
+  /// "Your Day" moments that are still showing.
+  final AsyncValue<List<DayMoment>> moments;
+  final VoidCallback onOpenMood;
+  final VoidCallback onOpenProfile;
+  final VoidCallback onAddMoment;
+  final ValueChanged<DayMoment> onOpenMoment;
   final ValueChanged<Quest> onOpenQuest;
   final ValueChanged<MemorySummary> onOpenMemory;
   final VoidCallback onSeeAllMemories;
@@ -59,7 +83,7 @@ class HomeTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final today = DateTime.now();
+    final today = now ?? DateTime.now();
     final onThisDaySummary = onThisDay.value;
     final pending = pendingQuests.value ?? const [];
 
@@ -73,8 +97,32 @@ class HomeTemplate extends StatelessWidget {
           child: MdHomeGreeting(
             greeting: greeting,
             today: today,
-            onOpenSettings: onOpenSettings,
+            mood: mood,
+            avatarId: avatarId,
+            onOpenMood: onOpenMood,
+            onOpenProfile: onOpenProfile,
           ),
+        ),
+      ),
+      (
+        'your-day',
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const MdGutterPadding(
+              child: MdSectionHeader(
+                title: 'Moments & Stories',
+                subtitle: 'Little moments that matters',
+              ),
+            ),
+            const SizedBox(height: AppSpacing.ms),
+            MdDayMomentsRow(
+              moments: moments,
+              now: today,
+              onAdd: onAddMoment,
+              onOpen: onOpenMoment,
+            ),
+          ],
         ),
       ),
       (
@@ -190,7 +238,7 @@ class HomeTemplate extends StatelessWidget {
                   children: [
                     Expanded(
                       child: MdIdeaTile(
-                        icon: Icons.auto_awesome_rounded,
+                        icon: LucideIcons.sparkles,
                         title: 'Browse quests',
                         subtitle: 'For us, family, friends',
                         color: AppColors.softPeach,
@@ -200,7 +248,7 @@ class HomeTemplate extends StatelessWidget {
                     const SizedBox(width: AppSpacing.ms),
                     Expanded(
                       child: MdIdeaTile(
-                        icon: Icons.edit_rounded,
+                        icon: LucideIcons.pencil,
                         title: 'Create your own',
                         subtitle: 'Your idea, your people',
                         color: AppColors.paper,
