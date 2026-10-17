@@ -34,6 +34,9 @@ abstract final class AppRadius {
   static const button = 15.0;
 
   static const pill = 999.0;
+
+  /// Floating surfaces: the navigation dock and the prompt bar.
+  static const floating = 24.0;
 }
 
 /// Icon sizes.
