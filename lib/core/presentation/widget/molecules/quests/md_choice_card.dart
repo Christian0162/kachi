@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -30,7 +31,7 @@ class MdChoiceCard extends StatelessWidget {
       excludeSemantics: true,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
+        borderRadius: BorderRadius.circular(AppRadius.base),
         child: AnimatedContainer(
           duration: AppMotion.of(context, AppMotion.short),
           curve: AppMotion.standard,
@@ -40,7 +41,7 @@ class MdChoiceCard extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: selected ? AppColors.softPeach : AppColors.paper,
-            borderRadius: BorderRadius.circular(AppRadius.lg),
+            borderRadius: BorderRadius.circular(AppRadius.base),
             border: Border.all(
               color: selected ? AppColors.textPrimary : AppColors.line,
               width: selected ? 2 : 1.5,
@@ -49,7 +50,7 @@ class MdChoiceCard extends StatelessWidget {
           child: Column(
             children: [
               Icon(
-                selected ? Icons.check_circle_rounded : icon,
+                selected ? LucideIcons.circleCheck : icon,
                 size: AppIconSizes.xl,
               ),
               const SizedBox(height: AppSpacing.sm),

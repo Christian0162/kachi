@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -22,11 +23,7 @@ class MdOpenMemoryLink extends StatelessWidget {
             'Open memory',
             style: AppTypography.label.copyWith(color: color),
           ),
-          Icon(
-            Icons.chevron_right_rounded,
-            size: AppIconSizes.md,
-            color: color,
-          ),
+          Icon(LucideIcons.chevronRight, size: AppIconSizes.md, color: color),
         ],
       ),
     );

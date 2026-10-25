@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../utils/app_haptics.dart';
@@ -23,9 +24,9 @@ class MdKeepsakeTrayTabs extends StatelessWidget {
       child: Row(
         children: [
           for (final (tray, label, icon) in const [
-            (KeepsakeTray.layout, 'Layout', Icons.dashboard_customize_rounded),
-            (KeepsakeTray.paper, 'Paper', Icons.palette_rounded),
-            (KeepsakeTray.stickers, 'Stickers', Icons.emoji_emotions_rounded),
+            (KeepsakeTray.layout, 'Layout', LucideIcons.layoutDashboard),
+            (KeepsakeTray.paper, 'Paper', LucideIcons.palette),
+            (KeepsakeTray.stickers, 'Stickers', LucideIcons.laugh),
           ]) ...[
             Expanded(
               child: ChoiceChip(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
 import '../../../types/settings/backup_state.dart';
+import '../../atoms/people/md_avatar_image.dart';
 import '../../molecules/common/md_app_card.dart';
 import '../../organisms/settings/md_backup_card.dart';
 import '../../organisms/common/md_app_scaffold.dart';
@@ -13,6 +15,9 @@ import '../../organisms/common/md_app_scaffold.dart';
 class SettingsTemplate extends StatelessWidget {
   const SettingsTemplate({
     super.key,
+    this.name,
+    this.avatarId,
+    required this.onOpenProfile,
     required this.backup,
     required this.onBackupToggled,
     required this.onBackUpNow,
@@ -20,6 +25,10 @@ class SettingsTemplate extends StatelessWidget {
     required this.onOpenLicenses,
   });
 
+  /// Your name, if you've set one.
+  final String? name;
+  final String? avatarId;
+  final VoidCallback onOpenProfile;
   final BackupState backup;
   final ValueChanged<bool> onBackupToggled;
   final VoidCallback onBackUpNow;
@@ -51,7 +60,7 @@ class SettingsTemplate extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.lock_rounded),
+                const Icon(LucideIcons.lock),
                 const SizedBox(width: AppSpacing.ms),
                 Expanded(
                   child: Column(
@@ -83,9 +92,26 @@ class SettingsTemplate extends StatelessWidget {
           MdAppCard(
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.xs),
             child: ListTile(
-              leading: const Icon(Icons.account_circle_outlined),
+              leading: MdAvatarImage(avatarId: avatarId, radius: 20),
+              title: const Text('Profile settings'),
+              subtitle: Text(
+                name == null || name!.trim().isEmpty
+                    ? 'Your name and avatar'
+                    : name!.trim(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              trailing: const Icon(LucideIcons.chevronRight),
+              onTap: onOpenProfile,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+          MdAppCard(
+            padding: const EdgeInsets.symmetric(vertical: AppSpacing.xs),
+            child: ListTile(
+              leading: const Icon(LucideIcons.circleUser),
               title: const Text('Your account'),
-              trailing: const Icon(Icons.chevron_right_rounded),
+              trailing: const Icon(LucideIcons.chevronRight),
               onTap: onOpenAccount,
             ),
           ),
@@ -93,9 +119,9 @@ class SettingsTemplate extends StatelessWidget {
           MdAppCard(
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.xs),
             child: ListTile(
-              leading: const Icon(Icons.description_outlined),
+              leading: const Icon(LucideIcons.fileText),
               title: const Text('Open-source licenses'),
-              trailing: const Icon(Icons.chevron_right_rounded),
+              trailing: const Icon(LucideIcons.chevronRight),
               onTap: onOpenLicenses,
             ),
           ),

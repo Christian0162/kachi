@@ -1,188 +1,140 @@
+import 'dart:ui' show ImageFilter;
+
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
-import '../../../../../config/constant/app_motion.dart';
-import '../../../../../config/constant/app_shadows.dart';
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
 import '../../atoms/common/md_pressable_scale.dart';
 
+/// The welcome nudge shown when the app opens: one line inviting people to
+/// create a quest. Tapping it takes you to the quests; the plus icon on the
+/// right opens the new-quest flow. Copy follows the product line "Do
+/// something together. Take the picture. Keep the memory." (CLAUDE.md §1,
+/// §57, design system §63).
+///
+/// ```text
+/// ╭────────────────────────────────────────╮
+/// │ (✦)  Create a quest                 (+)│
+/// │      Do it together. Keep the memory.  │
+/// ╰────────────────────────────────────────╯
+/// ```
 class MdQuestPromptBar extends StatelessWidget {
-  const MdQuestPromptBar({super.key, required this.onTap});
+  const MdQuestPromptBar({
+    super.key,
+    required this.onTap,
+    required this.onCreate,
+  });
 
-  static const _title = 'Start a quest';
+  static const _title = 'Create a quest';
   static const _subtitle = 'Do it together. Keep the memory.';
 
   final VoidCallback onTap;
+  final VoidCallback onCreate;
 
   @override
   Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(AppRadius.xl);
+    final radius = BorderRadius.circular(AppRadius.base);
 
-    return Semantics(
-      button: true,
-      label: '$_title. $_subtitle',
-      excludeSemantics: true,
-      child: MdPressableScale(
-        enabled: true,
-        scale: 0.98,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: radius,
-            // A charcoal lip under the coral, like the primary button.
-            boxShadow: const [
-              BoxShadow(color: AppColors.warmCharcoal, offset: Offset(0, 4)),
-              ...AppShadows.floating,
-            ],
-          ),
-          child: Material(
-            color: AppColors.warmCoral,
-            borderRadius: radius,
-            clipBehavior: Clip.antiAlias,
-            child: InkWell(
-              onTap: onTap,
-              child: Padding(
-                padding: const EdgeInsets.all(AppSpacing.ms),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: AppColors.paper.withValues(alpha: 0.55),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.auto_awesome_rounded,
-                        size: AppIconSizes.lg,
-                        color: AppColors.onCoral,
+    return MdPressableScale(
+      enabled: true,
+      scale: 0.98,
+      // Frosted glass: what scrolls behind is blurred, under a dark tint
+      // that keeps the light text readable, and a hairline catches the light.
+      child: ClipRRect(
+        borderRadius: radius,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 18, sigmaY: 18),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: radius,
+              color: AppColors.dock.withValues(alpha: 0.62),
+              border: Border.all(
+                color: AppColors.onCamera.withValues(alpha: 0.18),
+              ),
+            ),
+            child: Material(
+              type: MaterialType.transparency,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Semantics(
+                      button: true,
+                      label: '$_title. $_subtitle',
+                      excludeSemantics: true,
+                      // No ink: the card's own press-scale is the feedback.
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: onTap,
+                        child: Padding(
+                          padding: const EdgeInsets.all(AppSpacing.ms),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: AppColors.onCamera.withValues(
+                                    alpha: 0.08,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: const Icon(
+                                  LucideIcons.sparkles,
+                                  size: AppIconSizes.lg,
+                                  color: AppColors.softPeach,
+                                ),
+                              ),
+                              const SizedBox(width: AppSpacing.ms),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      _title,
+                                      style: AppTypography.heading3.copyWith(
+                                        color: AppColors.warmCream,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    const SizedBox(height: AppSpacing.xxs),
+                                    Text(
+                                      _subtitle,
+                                      style: AppTypography.caption.copyWith(
+                                        color: AppColors.onDockMuted,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                    const SizedBox(width: AppSpacing.ms),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            _title,
-                            style: AppTypography.heading3.copyWith(
-                              color: AppColors.onCoral,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: AppSpacing.xxs),
-                          Text(
-                            _subtitle,
-                            style: AppTypography.caption.copyWith(
-                              color: AppColors.onCoral,
-                            ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
-                      ),
+                  ),
+                  IconButton(
+                    onPressed: onCreate,
+                    tooltip: 'Create a quest',
+                    icon: const Icon(LucideIcons.plus),
+                    iconSize: AppIconSizes.md,
+                    color: AppColors.onDockMuted,
+                    style: IconButton.styleFrom(
+                      overlayColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                     ),
-                    const SizedBox(width: AppSpacing.sm),
-                    const _RipplingPlus(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: AppSpacing.xs),
+                ],
               ),
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-/// The charcoal "+" with a cream plus, sitting on the coral bar.
-/// A ring swells out of it and fades, a few times, then stops.
-class _RipplingPlus extends StatefulWidget {
-  const _RipplingPlus();
-
-  @override
-  State<_RipplingPlus> createState() => _RipplingPlusState();
-}
-
-class _RipplingPlusState extends State<_RipplingPlus>
-    with SingleTickerProviderStateMixin {
-  static const _radius = 20.0;
-  static const _ripples = 3;
-
-  static const _delay = Duration(milliseconds: 600);
-  static const _ripple = Duration(milliseconds: 1400);
-
-  // One run covers the pause and every ripple, so there are no timers to
-  // outlive the widget.
-  late final AnimationController _controller = AnimationController(
-    vsync: this,
-    duration: _delay + _ripple * _ripples,
-  );
-  bool _started = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_started || AppMotion.reduced(context)) return;
-    _started = true;
-    _controller.forward();
-  }
-
-  double? get _phase {
-    if (!_controller.isAnimating) return null;
-    final elapsed = _controller.duration! * _controller.value - _delay;
-    if (elapsed.isNegative) return null;
-    return (elapsed.inMicroseconds % _ripple.inMicroseconds) /
-        _ripple.inMicroseconds;
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox.square(
-      dimension: _radius * 2,
-      child: Stack(
-        clipBehavior: Clip.none,
-        alignment: Alignment.center,
-        children: [
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (context, _) {
-              final phase = _phase;
-              final visible = phase != null;
-              final t = Curves.easeOut.transform(phase ?? 0);
-              return Transform.scale(
-                scale: 1 + 0.6 * t,
-                child: Container(
-                  width: _radius * 2,
-                  height: _radius * 2,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.warmCharcoal.withValues(
-                        alpha: visible ? 0.7 * (1 - t) : 0,
-                      ),
-                      width: 2,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-          const CircleAvatar(
-            radius: _radius,
-            backgroundColor: AppColors.warmCharcoal,
-            foregroundColor: AppColors.warmCream,
-            child: Icon(Icons.add_rounded, size: AppIconSizes.lg),
-          ),
-        ],
       ),
     );
   }

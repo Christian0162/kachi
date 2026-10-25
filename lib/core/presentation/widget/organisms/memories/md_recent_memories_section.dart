@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -49,7 +50,7 @@ class MdRecentMemoriesSection extends StatelessWidget {
           elevated: false,
           child: Row(
             children: [
-              const Icon(Icons.photo_album_outlined),
+              const Icon(LucideIcons.bookImage),
               const SizedBox(width: AppSpacing.ms),
               Expanded(
                 child: Text(

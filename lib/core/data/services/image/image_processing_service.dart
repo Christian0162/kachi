@@ -125,7 +125,7 @@ class ImageProcessingService {
     return compute(_pngToJpg, pngBytes);
   }
 
-  /// Lays [photos] out as a physical photobooth print with a "PHOTO QUEST"
+  /// Lays [photos] out as a physical photobooth print with a "KACHI"
   /// footer and [caption] (usually the date).
   Future<Uint8List> composePhotoStrip(
     List<Uint8List> photos, {
@@ -498,7 +498,7 @@ class ImageProcessingService {
     }
 
     final footerTop = y - gap + margin;
-    _drawCentered(strip, 'PHOTO QUEST', img.arial48, footerTop, ink);
+    _drawCentered(strip, 'KACHI', img.arial48, footerTop, ink);
     _drawCentered(strip, caption, img.arial24, footerTop + 64, ink);
 
     return Uint8List.fromList(

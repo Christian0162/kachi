@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:photoquest/core/domain/memories/enum/keepsake_layout.dart';
 import 'package:photoquest/core/domain/memories/enum/sticker_type.dart';
@@ -50,7 +51,7 @@ void main() {
 
     // Anywhere on the sticker as it appears on screen — fingers rarely
     // land on the exact middle.
-    final heart = find.byIcon(Icons.favorite_rounded);
+    final heart = find.byIcon(LucideIcons.heart);
     final center = tester.getCenter(heart);
     final upperLeft = tester.getTopLeft(heart) + const Offset(4, 4);
 

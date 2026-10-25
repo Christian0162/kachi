@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -27,7 +28,7 @@ class MdSelfCard extends StatelessWidget {
     return MdAppCard(
       color: AppColors.softPeach,
       elevated: false,
-      radius: AppRadius.xl,
+      radius: AppRadius.base,
       semanticLabel: '${person.name}, you. $circle',
       child: Row(
         children: [
@@ -48,7 +49,7 @@ class MdSelfCard extends StatelessWidget {
               ],
             ),
           ),
-          const MdIconChip(label: "That's you", icon: Icons.favorite_rounded),
+          const MdIconChip(label: "That's you", icon: LucideIcons.heart),
         ],
       ),
     );

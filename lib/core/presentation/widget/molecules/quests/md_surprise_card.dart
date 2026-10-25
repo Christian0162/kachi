@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -66,7 +67,7 @@ class _MdSurpriseCardState extends State<MdSurpriseCard>
   Widget build(BuildContext context) {
     return MdAppCard(
       color: AppColors.filmYellow,
-      radius: AppRadius.xl,
+      radius: AppRadius.base,
       onTap: _tap,
       semanticLabel: "Can't decide? Surprise me",
       child: Row(
@@ -87,7 +88,7 @@ class _MdSurpriseCardState extends State<MdSurpriseCard>
                 color: AppColors.paper,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.casino_rounded, size: AppIconSizes.xl),
+              child: const Icon(LucideIcons.dices, size: AppIconSizes.xl),
             ),
           ),
           const SizedBox(width: AppSpacing.md),
@@ -109,7 +110,7 @@ class _MdSurpriseCardState extends State<MdSurpriseCard>
               ],
             ),
           ),
-          const Icon(Icons.arrow_forward_rounded),
+          const Icon(LucideIcons.arrowRight),
         ],
       ),
     );

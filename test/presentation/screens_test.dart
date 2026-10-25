@@ -92,17 +92,17 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();
 
     expect(find.text("Today's quest"), findsOneWidget);
     expect(find.text("Let's do it"), findsOneWidget);
-    expect(find.bySemanticsLabel(RegExp('^Start a quest')), findsOneWidget);
+    expect(find.bySemanticsLabel(RegExp('^Create a quest')), findsOneWidget);
   });
 
-  testWidgets('the quest prompt floats on every tab, tucks away while '
+  testWidgets('the dock floats on every tab, tucks away while '
       'scrolling down, and returns on the way up', (tester) async {
     final db = AppDatabase.forTesting(NativeDatabase.memory());
     addTearDown(db.close);
@@ -115,85 +115,28 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();
 
     final prompt = find.byType(MdQuestPromptBar);
+    final dock = find.byTooltip('Memories');
     for (final tab in ['People', 'Memories', 'Home']) {
       await tester.tap(find.bySemanticsLabel(tab));
       await tester.pumpAndSettle();
       expect(prompt.hitTestable(), findsOneWidget, reason: 'on $tab');
+      expect(dock.hitTestable(), findsOneWidget, reason: 'on $tab');
     }
 
     final page = find.byType(Scrollable).first;
     await tester.drag(page, const Offset(0, -200));
     await tester.pumpAndSettle();
-    expect(prompt.hitTestable(), findsNothing);
+    expect(dock.hitTestable(), findsNothing);
 
     await tester.drag(page, const Offset(0, 100));
     await tester.pumpAndSettle();
-    expect(prompt.hitTestable(), findsOneWidget);
-  });
-
-  testWidgets('opening the app plays a short reveal, then gets out of the '
-      'way; a tap skips it', (tester) async {
-    final db = AppDatabase.forTesting(NativeDatabase.memory());
-    addTearDown(db.close);
-
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          authRepositoryProvider.overrideWithValue(
-            FakeAuthRepository(signedIn: true),
-          ),
-        ],
-        child: const PhotoQuestApp(),
-      ),
-    );
-    // Pump frame by frame, as a device would.
-    for (var i = 0; i < 20; i++) {
-      await tester.pump(const Duration(milliseconds: 50));
-    }
-    expect(
-      find.text('Do something together. Keep the memory.'),
-      findsOneWidget,
-    );
-
-    // A tap jumps to the outro instead of waiting out the whole reveal.
-    await tester.tapAt(const Offset(10, 10));
-    await tester.pump(); // the outro starts on this frame
-    for (var i = 0; i < 18; i++) {
-      await tester.pump(const Duration(milliseconds: 50));
-    }
-    await tester.pump();
-    expect(find.text('Do something together. Keep the memory.'), findsNothing);
-    expect(find.text("Today's quest"), findsOneWidget);
-  });
-
-  testWidgets('with reduced motion the reveal is skipped', (tester) async {
-    final db = AppDatabase.forTesting(NativeDatabase.memory());
-    addTearDown(db.close);
-    tester.platformDispatcher.accessibilityFeaturesTestValue =
-        const FakeAccessibilityFeatures(disableAnimations: true);
-    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
-
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          authRepositoryProvider.overrideWithValue(
-            FakeAuthRepository(signedIn: true),
-          ),
-        ],
-        child: const PhotoQuestApp(),
-      ),
-    );
-    await tester.pump();
-    expect(find.text('Do something together. Keep the memory.'), findsNothing);
-    expect(find.text("Today's quest"), findsOneWidget);
+    expect(dock.hitTestable(), findsOneWidget);
   });
 
   testWidgets('the nav dock fits a small phone at large text on every tab', (
@@ -215,7 +158,7 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pumpAndSettle();

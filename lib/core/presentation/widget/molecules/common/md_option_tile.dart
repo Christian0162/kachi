@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -30,7 +31,7 @@ class MdOptionTile extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       child: InkWell(
-        borderRadius: BorderRadius.circular(AppRadius.md),
+        borderRadius: BorderRadius.circular(AppRadius.base),
         onTap: () {
           AppHaptics.selection();
           onTap();
@@ -41,7 +42,7 @@ class MdOptionTile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
           decoration: BoxDecoration(
             color: selected ? AppColors.softPeach : AppColors.paper,
-            borderRadius: BorderRadius.circular(AppRadius.md),
+            borderRadius: BorderRadius.circular(AppRadius.base),
             border: Border.all(
               color: selected ? AppColors.textPrimary : AppColors.line,
               width: selected ? 2 : 1.5,
@@ -56,7 +57,7 @@ class MdOptionTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (selected) ...[
-                    const Icon(Icons.check_rounded, size: AppIconSizes.sm),
+                    const Icon(LucideIcons.check, size: AppIconSizes.sm),
                     const SizedBox(width: AppSpacing.xxs),
                   ],
                   Flexible(

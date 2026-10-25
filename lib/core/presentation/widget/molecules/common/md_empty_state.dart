@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -26,7 +27,7 @@ class MdEmptyState extends StatelessWidget {
     bool onDark = false,
   }) : this(
          key: key,
-         icon: Icons.cloud_off_rounded,
+         icon: LucideIcons.cloudOff,
          title: title,
          message: message,
          onDark: onDark,
@@ -34,7 +35,7 @@ class MdEmptyState extends StatelessWidget {
              ? null
              : MdSecondaryButton(
                  label: 'Try again',
-                 icon: Icons.refresh_rounded,
+                 icon: LucideIcons.refreshCw,
                  expand: false,
                  onDark: onDark,
                  onPressed: onRetry,

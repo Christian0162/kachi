@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_shadows.dart';
@@ -44,12 +45,12 @@ class MdMemoryFeatureCard extends StatelessWidget {
 
     final card = DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppRadius.xl),
+        borderRadius: BorderRadius.circular(AppRadius.base),
         boxShadow: AppShadows.print,
       ),
       child: Material(
         color: AppColors.printWell,
-        borderRadius: BorderRadius.circular(AppRadius.xl),
+        borderRadius: BorderRadius.circular(AppRadius.base),
         clipBehavior: Clip.antiAlias,
         child: Semantics(
           button: true,
@@ -87,7 +88,7 @@ class MdMemoryFeatureCard extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const Icon(
-                            Icons.history_rounded,
+                            LucideIcons.history,
                             size: AppIconSizes.sm,
                             color: AppColors.warmCream,
                           ),
@@ -231,7 +232,7 @@ class _TrayLabel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
-            Icons.photo_camera_rounded,
+            LucideIcons.camera,
             size: AppIconSizes.sm,
             color: AppColors.onCamera,
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -111,7 +112,7 @@ class MdQuestShotsStep extends StatelessWidget {
             IconButton.filled(
               tooltip: 'Add this shot',
               onPressed: canAdd ? _submit : null,
-              icon: const Icon(Icons.add_rounded),
+              icon: const Icon(LucideIcons.plus),
               style: IconButton.styleFrom(
                 backgroundColor: AppColors.warmCoral,
                 foregroundColor: AppColors.onCoral,
@@ -189,15 +190,12 @@ class MdQuestShotsStep extends StatelessWidget {
                   padding: const EdgeInsets.only(right: AppSpacing.lg),
                   decoration: BoxDecoration(
                     color: AppColors.errorSurface,
-                    borderRadius: BorderRadius.circular(AppRadius.lg),
+                    borderRadius: BorderRadius.circular(AppRadius.base),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Icon(
-                        Icons.delete_outline_rounded,
-                        color: AppColors.error,
-                      ),
+                      const Icon(LucideIcons.trash2, color: AppColors.error),
                       const SizedBox(width: AppSpacing.xs),
                       Text(
                         'Remove',

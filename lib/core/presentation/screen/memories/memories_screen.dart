@@ -33,7 +33,7 @@ class MemoriesScreen extends ConsumerWidget {
         ref.invalidate(memoryListProvider);
         await ref.read(memoryListProvider.future);
       },
-      onStartQuest: () => context.push(AppRoutes.quests),
+      onStartQuest: () => context.go(AppRoutes.quests),
       onOpenShared: () => context.push(AppRoutes.shared),
       onOpenMemory: (summary) => context.push(
         AppRoutes.memoryDetailPath(summary.memory.id),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -80,7 +81,7 @@ class _Tile extends StatelessWidget {
                               color: AppColors.softPeach,
                               child: SizedBox.square(
                                 dimension: inner,
-                                child: const Icon(Icons.hourglass_top_rounded),
+                                child: const Icon(LucideIcons.hourglass),
                               ),
                             )
                           : MdPersonAvatar(person: first, radius: inner / 2),

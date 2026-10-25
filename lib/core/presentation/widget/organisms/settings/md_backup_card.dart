@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -76,7 +77,7 @@ class MdBackupCard extends StatelessWidget {
                       ? 'Getting ready…'
                       : 'Backing up ${backup.done} of ${backup.total}…')
                 : 'Back up now',
-            icon: Icons.cloud_upload_outlined,
+            icon: LucideIcons.cloudUpload,
             onPressed: backup.running ? null : onBackUpNow,
           ),
           if (backup.message != null) ...[

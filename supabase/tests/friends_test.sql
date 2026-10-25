@@ -1,4 +1,4 @@
--- Photo Quest: friend codes, friend requests, and inviting friends directly.
+-- Kachi: friend codes, friend requests, and inviting friends directly.
 --
 -- Run AFTER all migrations, in the Supabase SQL editor or with
 -- psql -v ON_ERROR_STOP=1 -f friends_test.sql. One transaction, rolled back;

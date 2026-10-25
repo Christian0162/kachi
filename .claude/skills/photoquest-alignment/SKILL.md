@@ -1,9 +1,9 @@
 ---
 name: photoquest-alignment
-description: Use before starting any implementation, design, or bug-fix work in this repo, and again before reporting it done. Checks the request and the planned/actual changes against CLAUDE.md (Photo Quest's product principles, architecture, vocabulary, design system, and "do not build yet" list) so work stays aligned with the spec instead of drifting into generic app patterns. Trigger on any feature request, screen design, schema change, or refactor in this project.
+description: Use before starting any implementation, design, or bug-fix work in this repo, and again before reporting it done. Checks the request and the planned/actual changes against CLAUDE.md (Kachi's product principles, architecture, vocabulary, design system, and "do not build yet" list) so work stays aligned with the spec instead of drifting into generic app patterns. Trigger on any feature request, screen design, schema change, or refactor in this project.
 ---
 
-# Photo Quest Alignment Check
+# Kachi Alignment Check
 
 This project's full product and engineering spec lives in `CLAUDE.md` at the repo root. It is long — do not rely on memory of it. Re-read it (or the relevant sections) whenever this skill fires, since the spec is the source of truth, not this checklist.
 
@@ -17,7 +17,7 @@ Skip only for trivial, non-product-affecting edits (typo fixes, formatting, depe
 ## Before: align the request
 
 1. Read `CLAUDE.md` (or `grep` the specific section that applies — e.g. §18-19 for schema work, §28-30 for UI/design, §54 for scope).
-2. Translate the request into Photo Quest vocabulary. Confirm the request doesn't quietly rename or conflate `Quest`, `Quest Session`, `Memory`, `Photo`, or `Person` (§20, §59).
+2. Translate the request into Kachi vocabulary. Confirm the request doesn't quietly rename or conflate `Quest`, `Quest Session`, `Memory`, `Photo`, or `Person` (§20, §59).
 3. Check the request against the **Do Not Build Yet** list (§54A): backends other than Supabase, paid services, push notifications, public feeds/likes/comments, AI recognition, payments, ads. Accounts and Supabase are in scope (§54C), but anything that changes who can see someone's photos (cloud copies, sharing, invitations) needs the §54C plan confirmed first, and every new table or bucket needs RLS/Storage policies plus policy tests. Flag, don't silently implement.
 4. Identify which layers are affected (Presentation / Domain / Data) and confirm the plan respects the dependency direction: Presentation → Domain → Data, never the reverse (§14-17, §62).
 5. If it's a screen or UI change, check it against:

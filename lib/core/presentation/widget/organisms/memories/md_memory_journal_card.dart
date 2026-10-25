@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -58,7 +59,7 @@ class _MdMemoryJournalCardState extends State<MdMemoryJournalCard> {
     return MdPosterCard(
       onTap: onOpen,
       aspectRatio: 4 / 4.4,
-      radius: AppRadius.xl,
+      radius: AppRadius.base,
       background: _SwipeablePhotos(
         summary: summary,
         onPageChanged: (page) => setState(() => _page = page),
@@ -170,7 +171,7 @@ class _ViewShotsButton extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: AppColors.onCamera.withValues(alpha: 0.2),
-              borderRadius: BorderRadius.circular(AppRadius.pill),
+              borderRadius: BorderRadius.circular(AppRadius.base),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -181,7 +182,7 @@ class _ViewShotsButton extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Icon(
-                    Icons.photo_library_outlined,
+                    LucideIcons.images,
                     size: AppIconSizes.sm,
                     color: AppColors.onCamera,
                   ),

@@ -1,5 +1,5 @@
 name: photoquest
-description: "Photo Quest: do something together, take the picture, keep the memory."
+description: "Kachi: do something together, take the picture, keep the memory."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -66,6 +66,8 @@ dependencies:
   image_picker: ^1.2.4
   http: ^1.6.0
   connectivity_plus: ^7.3.2
+  lottie: ^3.6.1
+  lucide_icons_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -97,12 +99,25 @@ flutter:
     - assets/fonts/OFL-Outfit.txt
     - assets/fonts/OFL-Inter.txt
     - assets/fonts/OFL-Caveat.txt
+    # The Kachi logo, shown on the welcome and account screens.
+    - assets/images/branding/kachi_logo.png
     # Example photo for each quest category. Credits: CREDITS.md there.
     - assets/images/quests/for_us.jpg
     - assets/images/quests/for_family.jpg
     - assets/images/quests/for_friends.jpg
     - assets/images/quests/for_me.jpg
     - assets/images/quests/for_life.jpg
+    # Get-started animations (dotLottie).
+    - assets/animations/quest.lottie
+    - assets/animations/selfie.lottie
+    - assets/animations/camera.lottie
+    # Profile avatars to pick from. Credits: CREDITS.md there.
+    - assets/images/avatars/animals/
+    - assets/images/avatars/travel/
+    - assets/images/avatars/food/
+    - assets/images/avatars/nature/
+    - assets/images/avatars/fun/
+    - assets/images/avatars/LICENSE-FluentUI-Emoji.txt
 
   # Bundled (not fetched at runtime) so typography works offline. See
   # CLAUDE.md §29, §55. Licenses: assets/fonts/OFL-*.txt.
@@ -123,6 +138,10 @@ flutter:
           weight: 500
         - asset: assets/fonts/Inter-SemiBold.ttf
           weight: 600
+    # Friendly retro script for the "Kachi" wordmark.
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico-Regular.ttf
     # Handwriting, only for photobooth-print captions ("Better together").
     - family: Caveat
       fonts:

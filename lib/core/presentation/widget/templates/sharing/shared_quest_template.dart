@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -51,7 +52,7 @@ class SharedQuestTemplate extends StatelessWidget {
               children: [
                 MdPrimaryButton(
                   label: 'Accept the quest',
-                  icon: Icons.check_rounded,
+                  icon: LucideIcons.check,
                   loading: busy,
                   onPressed: busy ? null : onAccept,
                 ),
@@ -163,7 +164,7 @@ class SharedQuestTemplate extends StatelessWidget {
               const SizedBox(height: AppSpacing.lg),
               MdSecondaryButton(
                 label: 'Leave this quest',
-                icon: Icons.logout_rounded,
+                icon: LucideIcons.logOut,
                 onPressed: busy ? null : onLeave,
               ),
             ],

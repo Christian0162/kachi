@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -68,10 +69,10 @@ class _MdScreenLoadingState extends State<MdScreenLoading>
                   height: 88,
                   decoration: BoxDecoration(
                     color: AppColors.softPeach,
-                    borderRadius: BorderRadius.circular(AppRadius.xl),
+                    borderRadius: BorderRadius.circular(AppRadius.base),
                   ),
                   child: const Icon(
-                    Icons.photo_camera_rounded,
+                    LucideIcons.camera,
                     size: AppIconSizes.hero,
                     color: AppColors.warmCoral,
                   ),

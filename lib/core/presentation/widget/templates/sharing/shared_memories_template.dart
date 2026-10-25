@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
@@ -38,7 +39,7 @@ class SharedMemoriesTemplate extends StatelessWidget {
       showAppBar: true,
       bottomAction: MdPrimaryButton(
         label: 'Enter a code',
-        icon: Icons.vpn_key_outlined,
+        icon: LucideIcons.keyRound,
         onPressed: onEnterCode,
       ),
       body: hub.when(
@@ -50,7 +51,7 @@ class SharedMemoriesTemplate extends StatelessWidget {
         ),
         data: (data) => data.isEmpty
             ? const MdEmptyState(
-                icon: Icons.group_outlined,
+                icon: LucideIcons.users,
                 title: 'Nothing shared with you yet',
                 message:
                     'When a friend sends you an invite code, their memory or '

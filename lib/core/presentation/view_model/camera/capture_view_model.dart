@@ -489,7 +489,7 @@ class CaptureViewModel extends _$CaptureViewModel {
     } catch (error, stack) {
       developer.log(
         'Capture failed (${current.mode.name})',
-        name: 'photoquest.capture',
+        name: 'kachi.capture',
         error: error,
         stackTrace: stack,
       );

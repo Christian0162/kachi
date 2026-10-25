@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
@@ -49,7 +50,7 @@ Future<Person?> showPeoplePickerSheet(
                       leading: MdPersonAvatar(person: person, radius: 22),
                       title: Text(person.name),
                       subtitle: Text(personTypeLabel(person.type)),
-                      trailing: const Icon(Icons.add_circle_outline_rounded),
+                      trailing: const Icon(LucideIcons.circlePlus),
                       onTap: () => Navigator.of(context).pop(person),
                     ),
                 ],

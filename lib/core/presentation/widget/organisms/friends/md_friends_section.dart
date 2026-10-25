@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -10,7 +11,7 @@ import '../../atoms/common/md_skeleton_box.dart';
 import '../../molecules/common/md_app_card.dart';
 import '../../molecules/common/md_section_header.dart';
 
-/// Real people on Photo Quest, above the people and pets kept on this phone:
+/// Real people on Kachi, above the people and pets kept on this phone:
 /// friends you can invite straight to a quest or memory, requests waiting for
 /// your answer, and requests you're waiting on. Added with a friend code, and
 /// only once they accept.
@@ -36,22 +37,20 @@ class MdFriendsSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MdSectionHeader(
-          title: 'Friends on Photo Quest',
+          title: 'Friends on Kachi',
           subtitle:
               'Real people you can invite straight to quests and '
               'memories.',
           trailing: TextButton.icon(
             onPressed: onAddFriend,
-            icon: const Icon(
-              Icons.person_add_alt_1_rounded,
-              size: AppIconSizes.md,
-            ),
+            icon: const Icon(LucideIcons.userPlus, size: AppIconSizes.md),
             label: const Text('Add a friend'),
           ),
         ),
         const SizedBox(height: AppSpacing.ms),
         friends.when(
-          loading: () => const MdSkeletonBox(height: 64, radius: AppRadius.lg),
+          loading: () =>
+              const MdSkeletonBox(height: 64, radius: AppRadius.base),
           error: (error, stack) => Row(
             children: [
               Expanded(
@@ -173,7 +172,7 @@ class _FriendRow extends StatelessWidget {
               tooltip: friend.isFriend
                   ? 'Remove ${friend.name} from your friends'
                   : 'Cancel the request to ${friend.name}',
-              icon: const Icon(Icons.close_rounded),
+              icon: const Icon(LucideIcons.x),
               onPressed: () => onRemove(friend),
             ),
           ],

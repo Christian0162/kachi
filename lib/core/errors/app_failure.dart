@@ -25,7 +25,7 @@ class CameraFailure extends AppFailure {
 class CameraPermissionFailure extends AppFailure {
   const CameraPermissionFailure([
     super.message =
-        'Photo Quest needs your camera to capture this memory. You can turn '
+        'Kachi needs your camera to capture this memory. You can turn '
         "camera access on in your phone's settings.",
   ]);
 }
@@ -39,7 +39,7 @@ class NotFoundFailure extends AppFailure {
 class GalleryAccessFailure extends AppFailure {
   const GalleryAccessFailure([
     super.message =
-        "Photo Quest can't save to your photos yet. You can allow it in your "
+        "Kachi can't save to your photos yet. You can allow it in your "
         "phone's settings.",
   ]);
 }

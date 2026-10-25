@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -76,7 +77,7 @@ class AccountTemplate extends StatelessWidget {
                         radius: AppIconSizes.md,
                         backgroundColor: AppColors.warmCharcoal,
                         child: Icon(
-                          Icons.photo_camera_rounded,
+                          LucideIcons.camera,
                           size: AppIconSizes.sm,
                           color: AppColors.warmCream,
                         ),
@@ -92,7 +93,7 @@ class AccountTemplate extends StatelessWidget {
             label: 'Your name',
             initialValue: account.displayName ?? '',
             onChanged: onNameChanged,
-            helperText: 'This is how Photo Quest greets you.',
+            helperText: 'This is how Kachi greets you.',
             textInputAction: TextInputAction.done,
             onSubmitted: _nameChanged ? onSaveName : null,
           ),
@@ -110,7 +111,7 @@ class AccountTemplate extends StatelessWidget {
             padding: const EdgeInsets.all(AppSpacing.md),
             child: Row(
               children: [
-                const Icon(Icons.mail_outline_rounded),
+                const Icon(LucideIcons.mail),
                 const SizedBox(width: AppSpacing.ms),
                 Expanded(
                   child: Column(
@@ -127,7 +128,7 @@ class AccountTemplate extends StatelessWidget {
           const SizedBox(height: AppSpacing.xl),
           MdSecondaryButton(
             label: 'Log out',
-            icon: Icons.logout_rounded,
+            icon: LucideIcons.logOut,
             onPressed: loggingOut || deleting ? null : onLogOut,
           ),
           const SizedBox(height: AppSpacing.md),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -29,7 +30,7 @@ class MdPoseIdeaCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: AppColors.cameraScrim,
-        borderRadius: BorderRadius.circular(AppRadius.lg),
+        borderRadius: BorderRadius.circular(AppRadius.base),
         border: Border.all(color: AppColors.filmYellow, width: 1.5),
       ),
       child: Column(
@@ -39,7 +40,7 @@ class MdPoseIdeaCard extends StatelessWidget {
           Row(
             children: [
               const Icon(
-                Icons.tips_and_updates_rounded,
+                LucideIcons.lightbulb,
                 size: AppIconSizes.sm,
                 color: AppColors.filmYellow,
               ),
@@ -56,7 +57,7 @@ class MdPoseIdeaCard extends StatelessWidget {
                 tooltip: 'Hide idea',
                 onPressed: onClose,
                 icon: const Icon(
-                  Icons.close_rounded,
+                  LucideIcons.x,
                   size: AppIconSizes.md,
                   color: AppColors.onCameraMuted,
                 ),
@@ -78,7 +79,7 @@ class MdPoseIdeaCard extends StatelessWidget {
                 foregroundColor: AppColors.onCamera,
                 minimumSize: const Size(0, AppTouch.minTarget),
               ),
-              icon: const Icon(Icons.shuffle_rounded, size: AppIconSizes.md),
+              icon: const Icon(LucideIcons.shuffle, size: AppIconSizes.md),
               label: const Text('Another idea'),
             ),
           ),

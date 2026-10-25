@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/icon/app_icon.png" alt="Photo Quest app icon" width="120" />
+  <img src="assets/icon/app_icon.png" alt="Kachi app icon" width="120" />
 </p>
 
-<h1 align="center">Photo Quest</h1>
+<h1 align="center">Kachi</h1>
 
 <p align="center">
   <strong>Do something together. Take the picture. Keep the memory.</strong>
@@ -16,7 +16,7 @@
   <img alt="Android and iOS" src="https://img.shields.io/badge/platform-Android%20%7C%20iOS-252323" />
 </p>
 
-Photo Quest is a social real-life quest and photobooth app. Pick a quest, do it
+Kachi is a social real-life quest and photobooth app. Pick a quest, do it
 together in real life, and a playful photobooth turns it into a memory you can
 repeat year after year.
 
@@ -56,7 +56,7 @@ a dashboard.
 - **Floating dock:** a three-tab charcoal bar (Home, Memories, People) with a
   gliding selection bubble, and a "Start a quest" prompt above it.
 - **Playful feedback:** springy press on buttons, confetti and stickers on
-  rewards, short fade-and-slide entrances, and an animated Photo Quest mark on
+  rewards, short fade-and-slide entrances, and an animated Kachi mark on
   the launch, welcome and account screens. Motion stays short and never blocks
   the person.
 - **Photobooth:** dark, minimal camera screen with a big preview, countdown,
@@ -194,5 +194,7 @@ store upload and record releases in [CHANGELOG.md](CHANGELOG.md).
 
 Example quest photos are from [Unsplash](https://unsplash.com), listed in
 [`assets/images/quests/CREDITS.md`](assets/images/quests/CREDITS.md). The app
-icon is [`assets/icon/app_icon.png`](assets/icon/app_icon.png); replace the
-generated Android and iOS icons together if it changes.
+icon is [`assets/icon/app_icon.png`](assets/icon/app_icon.png) and the in-app
+logo is [`assets/images/branding/kachi_logo.png`](assets/images/branding/kachi_logo.png);
+replace the generated Android, iOS, web, macOS and Windows icons and the launch
+screens together if they change.

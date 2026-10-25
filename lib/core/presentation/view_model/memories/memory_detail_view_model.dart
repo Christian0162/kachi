@@ -63,13 +63,13 @@ class MemoryDetailViewModel extends _$MemoryDetailViewModel {
           .read(sharingServiceProvider)
           .sharePhoto(
             stripPath,
-            text: '${detail.memory.title} · Made with Photo Quest',
+            text: '${detail.memory.title} · Made with Kachi',
             origin: origin,
           );
     } catch (error, stack) {
       developer.log(
         'Sharing failed',
-        name: 'photoquest.share',
+        name: 'kachi.share',
         error: error,
         stackTrace: stack,
       );
@@ -92,13 +92,13 @@ class MemoryDetailViewModel extends _$MemoryDetailViewModel {
           .shareFile(
             photo.originalPath,
             mimeType: mimeType,
-            text: '${detail.memory.title} · Made with Photo Quest',
+            text: '${detail.memory.title} · Made with Kachi',
             origin: origin,
           );
     } catch (error, stack) {
       developer.log(
         'Sharing a shot failed',
-        name: 'photoquest.share',
+        name: 'kachi.share',
         error: error,
         stackTrace: stack,
       );

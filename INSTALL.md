@@ -1,6 +1,6 @@
-# Installing Photo Quest
+# Installing Kachi
 
-This guide walks you through setting up Flutter and running **Photo Quest** on your local machine.
+This guide walks you through setting up Flutter and running **Kachi** on your local machine.
 
 ---
 
@@ -193,7 +193,7 @@ flutter pub get
 
 # 10. Generate Source Code
 
-Photo Quest uses Drift and Riverpod code generation.
+Kachi uses Drift and Riverpod code generation.
 
 Generate the required files:
 

@@ -2,6 +2,7 @@ import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:photoquest/core/presentation/widget/atoms/people/md_profile_button.dart';
 import 'package:photoquest/app.dart';
 import 'package:photoquest/config/constant/app_theme.dart';
 import 'package:photoquest/core/data/database/app_database.dart'
@@ -12,10 +13,12 @@ import 'package:photoquest/core/domain/auth/auth_validators.dart';
 import 'package:photoquest/core/errors/app_failure.dart';
 import 'package:photoquest/core/presentation/types/auth/auth_form_states.dart';
 import 'package:photoquest/core/presentation/view_model/auth/auth_session_view_model.dart';
-import 'package:photoquest/core/presentation/widget/atoms/common/md_photoquest_logo.dart';
-import 'package:photoquest/core/presentation/widget/molecules/common/md_animated_photoquest_logo.dart';
-import 'package:photoquest/core/presentation/widget/templates/auth/login_template.dart';
-import 'package:photoquest/core/presentation/widget/templates/auth/register_template.dart';
+import 'package:photoquest/core/presentation/widget/atoms/common/md_kachi_logo.dart';
+import 'package:photoquest/core/presentation/widget/molecules/common/md_animated_kachi_logo.dart';
+import 'package:photoquest/core/presentation/view_model/auth/auth_sheet_view_model.dart';
+import 'package:photoquest/core/presentation/widget/organisms/auth/md_login_form.dart';
+import 'package:photoquest/core/presentation/widget/organisms/auth/md_register_form.dart';
+import 'package:photoquest/core/presentation/widget/templates/auth/welcome_template.dart';
 import 'package:photoquest/core/presentation/widget/templates/auth/verify_email_template.dart';
 
 import '../support/fake_auth_repository.dart';
@@ -52,10 +55,7 @@ Future<ProviderContainer> _pumpApp(
   addTearDown(container.dispose);
 
   await tester.pumpWidget(
-    UncontrolledProviderScope(
-      container: container,
-      child: const PhotoQuestApp(),
-    ),
+    UncontrolledProviderScope(container: container, child: const KachiApp()),
   );
   await tester.pumpAndSettle();
   return container;
@@ -323,7 +323,7 @@ void main() {
         ..registerConfirmed('me@example.com', 'secret123')
         ..failNext = const AuthFailure(
           AuthFailureKind.offline,
-          "Can't reach Photo Quest right now. Check your connection and try "
+          "Can't reach Kachi right now. Check your connection and try "
           'again.',
         );
       await _pumpApp(tester, auth);
@@ -334,7 +334,7 @@ void main() {
       await _type(tester, 'Password', 'secret123');
       await _tapButton(tester, 'Log in');
 
-      expect(find.textContaining("Can't reach Photo Quest"), findsOneWidget);
+      expect(find.textContaining("Can't reach Kachi"), findsOneWidget);
 
       // Trying again once the connection is back works.
       await _tapButton(tester, 'Log in');
@@ -417,7 +417,7 @@ void main() {
         profile: profile,
       );
 
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
 
@@ -436,7 +436,7 @@ void main() {
       final auth = FakeAuthRepository(signedIn: true);
       await _pumpApp(tester, auth, profile: FakeProfileRepository());
 
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
       await tester.ensureVisible(find.text('Log out'));
@@ -450,7 +450,7 @@ void main() {
 
   group('delete account', () {
     Future<void> openAccount(WidgetTester tester) async {
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
       await _openAccountFromSettings(tester);
       await tester.ensureVisible(find.text('Delete my account'));
@@ -555,25 +555,47 @@ void main() {
     }
 
     final templates = <String, Widget Function()>{
-      'login': () => LoginTemplate(
-        form: const LoginFormState(),
-        onEmailChanged: (_) {},
-        onPasswordChanged: (_) {},
-        onToggleShowPassword: () {},
-        onSubmit: () {},
-        onForgotPassword: () {},
+      'welcome': () => WelcomeTemplate(
+        mode: AuthSheetMode.actions,
+        formBuilder: (_, _) => const SizedBox.shrink(),
         onCreateAccount: () {},
-        onBack: () {},
-      ),
-      'register with errors': () => RegisterTemplate(
-        form: const RegisterFormState(showErrors: true, error: 'Oops'),
-        onEmailChanged: (_) {},
-        onPasswordChanged: (_) {},
-        onConfirmationChanged: (_) {},
-        onToggleShowPassword: () {},
-        onSubmit: () {},
         onLogIn: () {},
-        onBack: () {},
+        onClose: () {},
+        onExpandedChanged: (_) {},
+      ),
+      'login': () => WelcomeTemplate(
+        mode: AuthSheetMode.login,
+        formBuilder: (_, controller) => MdLoginForm(
+          scrollController: controller,
+          form: const LoginFormState(),
+          onEmailChanged: (_) {},
+          onPasswordChanged: (_) {},
+          onToggleShowPassword: () {},
+          onSubmit: () {},
+          onForgotPassword: () {},
+          onCreateAccount: () {},
+        ),
+        onCreateAccount: () {},
+        onLogIn: () {},
+        onClose: () {},
+        onExpandedChanged: (_) {},
+      ),
+      'register with errors': () => WelcomeTemplate(
+        mode: AuthSheetMode.register,
+        formBuilder: (_, controller) => MdRegisterForm(
+          scrollController: controller,
+          form: const RegisterFormState(showErrors: true, error: 'Oops'),
+          onEmailChanged: (_) {},
+          onPasswordChanged: (_) {},
+          onConfirmationChanged: (_) {},
+          onToggleShowPassword: () {},
+          onSubmit: () {},
+          onLogIn: () {},
+        ),
+        onCreateAccount: () {},
+        onLogIn: () {},
+        onClose: () {},
+        onExpandedChanged: (_) {},
       ),
       'verify': () => VerifyEmailTemplate(
         email: 'a-rather-long-address@example-domain.com',
@@ -619,9 +641,9 @@ void main() {
     });
   });
 
-  group('MdAnimatedPhotoQuestLogo', () {
-    MdPhotoQuestLogo logo(WidgetTester tester) =>
-        tester.widget<MdPhotoQuestLogo>(find.byType(MdPhotoQuestLogo));
+  group('MdAnimatedKachiLogo', () {
+    MdKachiLogo logo(WidgetTester tester) =>
+        tester.widget<MdKachiLogo>(find.byType(MdKachiLogo));
 
     Widget app(Widget child, {bool disableAnimations = false}) => MaterialApp(
       builder: (context, child) => MediaQuery(
@@ -635,7 +657,7 @@ void main() {
     testWidgets('plays through its frames and settles at the resting logo', (
       tester,
     ) async {
-      await tester.pumpWidget(app(const MdAnimatedPhotoQuestLogo()));
+      await tester.pumpWidget(app(const MdAnimatedKachiLogo()));
 
       await tester.pump(const Duration(milliseconds: 400));
       expect(logo(tester).open, greaterThan(0));
@@ -649,15 +671,13 @@ void main() {
 
     testWidgets('loops while playing and stops cleanly', (tester) async {
       await tester.pumpWidget(
-        app(const MdAnimatedPhotoQuestLogo(playing: true, loop: true)),
+        app(const MdAnimatedKachiLogo(playing: true, loop: true)),
       );
       // Several full cycles later it is still animating.
       await tester.pump(const Duration(milliseconds: 3000));
       expect(tester.hasRunningAnimations, isTrue);
 
-      await tester.pumpWidget(
-        app(const MdAnimatedPhotoQuestLogo(playing: false)),
-      );
+      await tester.pumpWidget(app(const MdAnimatedKachiLogo(playing: false)));
       await tester.pump();
       expect(tester.hasRunningAnimations, isFalse);
       expect(logo(tester).develop, 1);
@@ -667,7 +687,7 @@ void main() {
       tester,
     ) async {
       await tester.pumpWidget(
-        app(const MdAnimatedPhotoQuestLogo(), disableAnimations: true),
+        app(const MdAnimatedKachiLogo(), disableAnimations: true),
       );
       await tester.pump(const Duration(milliseconds: 300));
 
@@ -677,7 +697,7 @@ void main() {
     });
 
     testWidgets('is disposed without leaking a running ticker', (tester) async {
-      await tester.pumpWidget(app(const MdAnimatedPhotoQuestLogo(loop: true)));
+      await tester.pumpWidget(app(const MdAnimatedKachiLogo(loop: true)));
       await tester.pump(const Duration(milliseconds: 200));
       await tester.pumpWidget(app(const SizedBox()));
 
@@ -686,8 +706,8 @@ void main() {
     });
 
     testWidgets('has a screen reader label', (tester) async {
-      await tester.pumpWidget(app(const MdAnimatedPhotoQuestLogo()));
-      expect(find.bySemanticsLabel('Photo Quest'), findsOneWidget);
+      await tester.pumpWidget(app(const MdAnimatedKachiLogo()));
+      expect(find.bySemanticsLabel('Kachi'), findsOneWidget);
     });
   });
 }

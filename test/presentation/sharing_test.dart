@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:photoquest/core/presentation/widget/atoms/people/md_profile_button.dart';
 import 'package:photoquest/app.dart';
 import 'package:photoquest/config/constant/app_theme.dart';
 import 'package:photoquest/core/data/database/app_database.dart'
@@ -91,10 +92,7 @@ Future<ProviderContainer> _pumpApp(
   addTearDown(container.dispose);
 
   await tester.pumpWidget(
-    UncontrolledProviderScope(
-      container: container,
-      child: const PhotoQuestApp(),
-    ),
+    UncontrolledProviderScope(container: container, child: const KachiApp()),
   );
   await tester.pumpAndSettle();
   return container;
@@ -462,7 +460,7 @@ void main() {
       final cloud = FakeCloudMemoryRepository()
         ..failNext = const SharingFailure(
           SharingFailureKind.offline,
-          "Can't reach Photo Quest right now. Check your connection and try "
+          "Can't reach Kachi right now. Check your connection and try "
           'again.',
         );
       await _pumpSheet(tester, cloud);
@@ -470,14 +468,14 @@ void main() {
       await tester.tap(find.text('Create an invite code'));
       await tester.pumpAndSettle();
 
-      expect(find.textContaining("Can't reach Photo Quest"), findsOneWidget);
+      expect(find.textContaining("Can't reach Kachi"), findsOneWidget);
       expect(find.text('Create an invite code'), findsOneWidget);
 
       await tester.tap(find.text('Create an invite code'));
       await tester.pumpAndSettle();
 
       expect(find.text('ABCDE-FGHJK'), findsOneWidget);
-      expect(find.textContaining("Can't reach Photo Quest"), findsNothing);
+      expect(find.textContaining("Can't reach Kachi"), findsNothing);
     });
 
     testWidgets('shows who can see the memory, and stops sharing on tap', (
@@ -928,7 +926,7 @@ void main() {
 
   group('backup in Settings', () {
     Future<void> openSettings(WidgetTester tester) async {
-      await tester.tap(find.byTooltip('Settings'));
+      await tester.tap(find.byType(MdProfileButton));
       await tester.pumpAndSettle();
     }
 
@@ -1058,7 +1056,7 @@ void main() {
       );
       cloud.failuresByMemory[memory.id] = const SharingFailure(
         SharingFailureKind.offline,
-        "Can't reach Photo Quest right now. Check your connection and try "
+        "Can't reach Kachi right now. Check your connection and try "
         'again.',
       );
       await openSettings(tester);
@@ -1066,7 +1064,7 @@ void main() {
       await tester.tap(find.text('Back up now'));
       await tester.pumpAndSettle();
 
-      expect(find.textContaining("Can't reach Photo Quest"), findsOneWidget);
+      expect(find.textContaining("Can't reach Kachi"), findsOneWidget);
     });
 
     testWidgets('the backup card fits a small phone', (tester) async {

@@ -68,7 +68,7 @@ class QuestIntroViewModel extends _$QuestIntroViewModel {
     } catch (error, stack) {
       developer.log(
         'Starting quest failed',
-        name: 'photoquest.quest',
+        name: 'kachi.quest',
         error: error,
         stackTrace: stack,
       );

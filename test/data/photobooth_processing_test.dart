@@ -387,7 +387,7 @@ void main() {
 
   group('moving a recorded clip', () {
     late Directory dir;
-    setUp(() => dir = Directory.systemTemp.createTempSync('photoquest_move'));
+    setUp(() => dir = Directory.systemTemp.createTempSync('kachi_move'));
     tearDown(() => dir.deleteSync(recursive: true));
 
     test('renames when it can', () async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -111,8 +112,10 @@ class MemoriesTemplate extends StatelessWidget {
                     itemCount: 2,
                     separatorBuilder: (_, _) =>
                         const SizedBox(height: AppSpacing.lg),
-                    itemBuilder: (_, _) =>
-                        const MdSkeletonBox(height: 420, radius: AppRadius.xl),
+                    itemBuilder: (_, _) => const MdSkeletonBox(
+                      height: 420,
+                      radius: AppRadius.base,
+                    ),
                   ),
                 ),
               ],
@@ -130,12 +133,12 @@ class MemoriesTemplate extends StatelessWidget {
                       SliverFillRemaining(
                         hasScrollBody: false,
                         child: MdEmptyState(
-                          icon: Icons.photo_album_outlined,
+                          icon: LucideIcons.bookImage,
                           title: 'Your memories will live here',
                           message: 'Ready to make the first one?',
                           action: MdPrimaryButton(
                             label: 'Start a quest',
-                            icon: Icons.auto_awesome_rounded,
+                            icon: LucideIcons.sparkles,
                             expand: false,
                             onPressed: onStartQuest,
                           ),

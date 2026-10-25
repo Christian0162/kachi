@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -49,7 +50,7 @@ class MdInviteFriendCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.person_add_alt_1_rounded),
+              const Icon(LucideIcons.userPlus),
               const SizedBox(width: AppSpacing.ms),
               Expanded(child: Text(title, style: AppTypography.heading3)),
             ],
@@ -59,7 +60,7 @@ class MdInviteFriendCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.md),
           MdSecondaryButton(
             label: buttonLabel,
-            icon: Icons.person_add_alt_1_rounded,
+            icon: LucideIcons.userPlus,
             expand: false,
             onPressed: onInvite,
           ),

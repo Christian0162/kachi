@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../domain/memories/enum/keepsake_layout.dart';
@@ -15,9 +16,9 @@ class MdKeepsakeLayoutTray extends StatelessWidget {
   final ValueChanged<KeepsakeLayout> onChanged;
 
   static IconData _icon(KeepsakeLayout layout) => switch (layout) {
-    KeepsakeLayout.strip => Icons.view_agenda_rounded,
-    KeepsakeLayout.grid => Icons.grid_view_rounded,
-    KeepsakeLayout.polaroid => Icons.crop_portrait_rounded,
+    KeepsakeLayout.strip => LucideIcons.rows3,
+    KeepsakeLayout.grid => LucideIcons.layoutGrid,
+    KeepsakeLayout.polaroid => LucideIcons.rectangleVertical,
   };
 
   @override

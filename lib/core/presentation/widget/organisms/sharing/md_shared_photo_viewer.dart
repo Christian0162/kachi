@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -95,7 +96,7 @@ class _MdSharedPhotoViewerState extends State<MdSharedPhotoViewer> {
               child: Row(
                 children: [
                   MdRoundIconButton(
-                    icon: Icons.close_rounded,
+                    icon: LucideIcons.x,
                     tooltip: 'Close',
                     onPressed: () => Navigator.of(context).pop(),
                   ),

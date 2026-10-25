@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -95,7 +96,7 @@ class MdInstructionControls extends StatelessWidget {
                         padding: const EdgeInsets.only(right: AppSpacing.sm),
                       ),
                       icon: const Icon(
-                        Icons.tips_and_updates_rounded,
+                        LucideIcons.lightbulb,
                         size: AppIconSizes.md,
                       ),
                       label: const Text('Need an idea?'),
@@ -120,7 +121,7 @@ class MdInstructionControls extends StatelessWidget {
                   width: 64,
                   height: 84,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppRadius.sm),
+                    borderRadius: BorderRadius.circular(AppRadius.base),
                     border: Border.all(color: AppColors.onCamera, width: 2),
                   ),
                   clipBehavior: Clip.antiAlias,
@@ -193,8 +194,8 @@ class MdInstructionControls extends StatelessWidget {
             else
               MdCameraIconButton(
                 icon: showLooks && looksAvailable
-                    ? Icons.close_rounded
-                    : Icons.auto_fix_high_rounded,
+                    ? LucideIcons.x
+                    : LucideIcons.wandSparkles,
                 tooltip: !looksAvailable
                     ? "Looks aren't available for 360° clips"
                     : showLooks
@@ -221,7 +222,7 @@ class MdInstructionControls extends StatelessWidget {
               ),
             if (canSwitchCamera && !holding)
               MdCameraIconButton(
-                icon: Icons.cameraswitch_rounded,
+                icon: LucideIcons.switchCamera,
                 tooltip: 'Flip camera',
                 onPressed: onSwitchCamera,
               )

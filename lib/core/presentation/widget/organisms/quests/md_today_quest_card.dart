@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -35,7 +36,7 @@ class MdTodayQuestCard extends StatelessWidget {
           left: AppSpacing.md,
           child: MdSticker(
             label: "Today's quest",
-            icon: Icons.bolt_rounded,
+            icon: LucideIcons.zap,
             color: AppColors.warmCoral,
             tilt: -0.06,
             delay: const Duration(milliseconds: 450),
@@ -85,7 +86,7 @@ class MdTodayQuestCard extends StatelessWidget {
               const SizedBox(height: AppSpacing.md),
               MdPrimaryButton(
                 label: "Let's do it",
-                icon: Icons.photo_camera_rounded,
+                icon: LucideIcons.camera,
                 onPressed: onStart,
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_spacing.dart';
@@ -137,7 +138,7 @@ class MdInviteFriendSheet extends StatelessWidget {
             switch (state.phase) {
               SharePhase.idle => MdPrimaryButton(
                 label: copy.createLabel,
-                icon: Icons.person_add_alt_1_rounded,
+                icon: LucideIcons.userPlus,
                 onPressed: onCreate,
               ),
               SharePhase.saving => _Saving(
@@ -166,7 +167,7 @@ class MdInviteFriendSheet extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               TextButton.icon(
                 onPressed: state.removing ? null : onRemoveOnlineCopy,
-                icon: const Icon(Icons.cloud_off_outlined),
+                icon: const Icon(LucideIcons.cloudOff),
                 label: Text(
                   state.removing
                       ? 'Removing the online copy…'
@@ -294,7 +295,7 @@ class _PersonRow extends StatelessWidget {
           ),
         IconButton(
           tooltip: removeTooltip,
-          icon: const Icon(Icons.close_rounded),
+          icon: const Icon(LucideIcons.x),
           onPressed: onRemove,
         ),
       ],

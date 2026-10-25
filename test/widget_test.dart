@@ -9,7 +9,7 @@ import 'package:photoquest/core/data/repositories/auth_repository_provider.dart'
 import 'support/fake_auth_repository.dart';
 
 void main() {
-  testWidgets('PhotoQuestApp boots to the Home route', (tester) async {
+  testWidgets('KachiApp boots to the Home route', (tester) async {
     final db = AppDatabase.forTesting(NativeDatabase.memory());
     addTearDown(db.close);
 
@@ -21,7 +21,7 @@ void main() {
             FakeAuthRepository(signedIn: true),
           ),
         ],
-        child: const PhotoQuestApp(),
+        child: const KachiApp(),
       ),
     );
     await tester.pump();

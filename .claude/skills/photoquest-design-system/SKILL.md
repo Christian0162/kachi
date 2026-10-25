@@ -1,25 +1,25 @@
 ---
 name: photoquest-design-system
-description: Use before designing or implementing any screen, widget, or UI component in Photo Quest. Defines the visual design system, interaction patterns, screen hierarchy, component behavior, animation, responsive behavior, accessibility, and UX philosophy. This is the source of truth for UI/UX decisions in this repo — do not fall back to generic Material 3 layouts when a Photo Quest-specific pattern is defined here. Trigger on any screen design, new widget/component, navigation change, copy/microcopy work, or camera/photobooth UI work.
+description: Use before designing or implementing any screen, widget, or UI component in Kachi. Defines the visual design system, interaction patterns, screen hierarchy, component behavior, animation, responsive behavior, accessibility, and UX philosophy. This is the source of truth for UI/UX decisions in this repo — do not fall back to generic Material 3 layouts when a Kachi-specific pattern is defined here. Trigger on any screen design, new widget/component, navigation change, copy/microcopy work, or camera/photobooth UI work.
 ---
 
-# Photo Quest UI/UX Design System
+# Kachi UI/UX Design System
 
 ## Purpose
 
-You are working on **Photo Quest**, a social real-life quest and photobooth application.
+You are working on **Kachi**, a social real-life quest and photobooth application.
 
 This skill defines the visual design system, interaction patterns, screen hierarchy, component behavior, animation, responsive behavior, accessibility, and overall UX philosophy for the application.
 
 This skill is the **source of truth for UI/UX decisions**.
 
-Do not create UI based on generic assumptions or generic Material 3 layouts when a Photo Quest-specific pattern is defined here.
+Do not create UI based on generic assumptions or generic Material 3 layouts when a Kachi-specific pattern is defined here.
 
 ---
 
 # 1. Product Experience
 
-Photo Quest is:
+Kachi is:
 
 > **A social app where people create or discover quests, invite others, complete the quest together in real life, and capture a memorable photobooth picture.**
 
@@ -80,9 +80,9 @@ and after completion:
 
 ---
 
-# 3. What Photo Quest Should NOT Feel Like
+# 3. What Kachi Should NOT Feel Like
 
-Avoid making Photo Quest look like:
+Avoid making Kachi look like:
 
 * a productivity app
 * a task manager
@@ -139,7 +139,7 @@ Material 3 provides:
 * interaction behavior
 * adaptive UI
 
-Photo Quest provides the product-specific visual identity.
+Kachi provides the product-specific visual identity.
 
 ---
 
@@ -693,7 +693,7 @@ Avoid unrelated navigation or information.
 
 # 24. Photobooth Experience
 
-The photobooth is one of the most important screens in Photo Quest.
+The photobooth is one of the most important screens in Kachi.
 
 The camera preview should dominate the screen.
 
@@ -932,7 +932,7 @@ Example:
 ├───────────────┤
 │    PHOTO 3    │
 │               │
-│  PHOTO QUEST  │
+│  KACHI  │
 │  Sep 17 2026  │
 └───────────────┘
 ```
@@ -1109,7 +1109,7 @@ Camera permission should be requested in context.
 
 Before requesting:
 
-> Photo Quest needs your camera to capture the memory for this quest.
+> Kachi needs your camera to capture the memory for this quest.
 
 Then request permission.
 
@@ -1338,7 +1338,7 @@ Do not communicate important information using color alone.
 
 # 54. Component Architecture
 
-Create reusable Photo Quest components.
+Create reusable Kachi components.
 
 Examples:
 
@@ -1543,7 +1543,7 @@ Do not implement these as default UI patterns:
 * public popularity
 * comment sections
 
-Photo Quest is social because **people participate together**, not because people consume a public feed.
+Kachi is social because **people participate together**, not because people consume a public feed.
 
 ---
 
@@ -1656,7 +1656,7 @@ Before implementing UI:
 
 When a requirement is unclear:
 
-1. Preserve the established Photo Quest visual language.
+1. Preserve the established Kachi visual language.
 2. Prefer the simpler interaction.
 3. Prefer real-life activity over in-app interaction.
 4. Prefer people and quest context over metadata.
@@ -1670,7 +1670,7 @@ If a decision affects product behavior rather than UI implementation, inspect th
 
 # 68. Final Design Principle
 
-Every important Photo Quest screen should reinforce:
+Every important Kachi screen should reinforce:
 
 ```text
 PEOPLE
@@ -1686,6 +1686,6 @@ MEMORY
 
 The UI exists to make that experience feel effortless, exciting, and memorable.
 
-The ultimate goal is not for users to spend more time inside Photo Quest.
+The ultimate goal is not for users to spend more time inside Kachi.
 
-The goal is for Photo Quest to help users create moments they will remember after they leave the app.
+The goal is for Kachi to help users create moments they will remember after they leave the app.

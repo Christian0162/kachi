@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_constants.dart';
@@ -47,7 +48,7 @@ class QuestIntroTemplate extends StatelessWidget {
   final VoidCallback onStart;
   final VoidCallback onInvite;
 
-  /// Opens the sheet that makes a code a friend with Photo Quest can use to
+  /// Opens the sheet that makes a code a friend with Kachi can use to
   /// join this quest from their own phone.
   final VoidCallback onInviteOnline;
   final ValueChanged<QuestParticipantWithPerson> onConfirmParticipant;
@@ -73,7 +74,7 @@ class QuestIntroTemplate extends StatelessWidget {
           padding: EdgeInsets.all(AppSpacing.gutter),
           child: Column(
             children: [
-              MdSkeletonBox(height: 220, radius: AppRadius.photo),
+              MdSkeletonBox(height: 220, radius: AppRadius.base),
               SizedBox(height: AppSpacing.lg),
               MdSkeletonBox(height: 32),
               SizedBox(height: AppSpacing.sm),
@@ -100,7 +101,7 @@ class QuestIntroTemplate extends StatelessWidget {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(AppRadius.photo),
+                    borderRadius: BorderRadius.circular(AppRadius.base),
                     child: AspectRatio(
                       aspectRatio: 16 / 10,
                       child: MdQuestHeroCover(quest: quest),
@@ -138,7 +139,7 @@ class QuestIntroTemplate extends StatelessWidget {
                     label: questTypeLabel(quest.type),
                   ),
                   MdIconFact(
-                    icon: Icons.photo_camera_outlined,
+                    icon: LucideIcons.camera,
                     label: data.shots.length == 1
                         ? '1 photo'
                         : '${data.shots.length} photos',

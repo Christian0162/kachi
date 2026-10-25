@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter/semantics.dart';
 import 'package:intl/intl.dart';
 
@@ -243,7 +244,7 @@ class _Footer extends StatelessWidget {
         ),
         SizedBox(height: width * 0.015),
         Text(
-          '${DateFormat.yMMMd().format(date).toUpperCase()}  ·  PHOTO QUEST',
+          '${DateFormat.yMMMd().format(date).toUpperCase()}  ·  KACHI',
           maxLines: 1,
           style: AppTypography.overline.copyWith(
             color: ink,
@@ -311,7 +312,7 @@ class _PlacedStickerViewState extends State<_PlacedStickerView> {
         position: DecorationPosition.foreground,
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.warmCoral, width: 2),
-          borderRadius: BorderRadius.circular(AppRadius.sm),
+          borderRadius: BorderRadius.circular(AppRadius.base),
         ),
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.xs),
@@ -333,7 +334,7 @@ class _PlacedStickerViewState extends State<_PlacedStickerView> {
                 AppHaptics.remove();
                 widget.onRemove();
               },
-              icon: const Icon(Icons.close_rounded, size: AppIconSizes.sm),
+              icon: const Icon(LucideIcons.x, size: AppIconSizes.sm),
               style: IconButton.styleFrom(
                 backgroundColor: AppColors.warmCharcoal,
                 foregroundColor: AppColors.warmCream,

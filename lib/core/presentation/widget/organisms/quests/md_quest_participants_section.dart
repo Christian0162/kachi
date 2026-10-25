@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -77,7 +78,7 @@ class MdQuestParticipantsSection extends StatelessWidget {
             const SizedBox(height: AppSpacing.ms),
             MdSecondaryButton(
               label: 'Invite someone to join',
-              icon: Icons.person_add_alt_1_rounded,
+              icon: LucideIcons.userPlus,
               onPressed: onInvite,
             ),
           ],
@@ -107,16 +108,16 @@ class _ParticipantRow extends StatelessWidget {
     final pill = switch (status) {
       'accepted' || 'completed' => const MdStatusPill(
         label: "They're in",
-        icon: Icons.check_circle_rounded,
+        icon: LucideIcons.circleCheck,
         tone: StatusTone.positive,
       ),
       'declined' => const MdStatusPill(
         label: "Can't make it",
-        icon: Icons.do_not_disturb_on_outlined,
+        icon: LucideIcons.circleMinus,
       ),
       _ => const MdStatusPill(
         label: 'Waiting',
-        icon: Icons.hourglass_top_rounded,
+        icon: LucideIcons.hourglass,
         tone: StatusTone.waiting,
       ),
     };
@@ -159,7 +160,7 @@ class _ParticipantRow extends StatelessWidget {
           IconButton(
             onPressed: onRemove,
             tooltip: 'Remove $name',
-            icon: const Icon(Icons.close_rounded, size: AppIconSizes.md),
+            icon: const Icon(LucideIcons.x, size: AppIconSizes.md),
           ),
         ],
       ),

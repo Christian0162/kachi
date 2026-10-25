@@ -3,10 +3,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../../../../config/constant/app_motion.dart';
-import '../../atoms/common/md_photoquest_logo.dart';
+import '../../atoms/common/md_kachi_logo.dart';
 
-class MdAnimatedPhotoQuestLogo extends StatefulWidget {
-  const MdAnimatedPhotoQuestLogo({
+class MdAnimatedKachiLogo extends StatefulWidget {
+  const MdAnimatedKachiLogo({
     super.key,
     this.size = 120,
     this.playing = true,
@@ -23,11 +23,10 @@ class MdAnimatedPhotoQuestLogo extends StatefulWidget {
   final Duration duration;
 
   @override
-  State<MdAnimatedPhotoQuestLogo> createState() =>
-      _MdAnimatedPhotoQuestLogoState();
+  State<MdAnimatedKachiLogo> createState() => _MdAnimatedKachiLogoState();
 }
 
-class _MdAnimatedPhotoQuestLogoState extends State<MdAnimatedPhotoQuestLogo>
+class _MdAnimatedKachiLogoState extends State<MdAnimatedKachiLogo>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
@@ -47,7 +46,7 @@ class _MdAnimatedPhotoQuestLogoState extends State<MdAnimatedPhotoQuestLogo>
   }
 
   @override
-  void didUpdateWidget(MdAnimatedPhotoQuestLogo oldWidget) {
+  void didUpdateWidget(MdAnimatedKachiLogo oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.playing != widget.playing || oldWidget.loop != widget.loop) {
       _sync();
@@ -110,7 +109,7 @@ class _MdAnimatedPhotoQuestLogoState extends State<MdAnimatedPhotoQuestLogo>
             offset: Offset(0, bob),
             child: Transform.scale(
               scale: land,
-              child: MdPhotoQuestLogo(
+              child: MdKachiLogo(
                 size: widget.size,
                 // Fans open, then eases shut again: the end frame is the
                 // resting logo.

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
@@ -149,7 +150,7 @@ class _PhotoViewerState extends State<_PhotoViewer> {
               child: Row(
                 children: [
                   MdCameraIconButton(
-                    icon: Icons.close_rounded,
+                    icon: LucideIcons.x,
                     tooltip: 'Close',
                     onPressed: () => Navigator.of(context).pop(),
                   ),
@@ -164,7 +165,7 @@ class _PhotoViewerState extends State<_PhotoViewer> {
                   const SizedBox(width: AppSpacing.md),
                   if (widget.onDownload != null) ...[
                     MdCameraIconButton(
-                      icon: Icons.download_rounded,
+                      icon: LucideIcons.download,
                       tooltip: 'Save to photos',
                       onPressed: () => widget.onDownload!(widget.photos[_page]),
                     ),
@@ -173,7 +174,7 @@ class _PhotoViewerState extends State<_PhotoViewer> {
                   if (widget.onShare != null)
                     Builder(
                       builder: (context) => MdCameraIconButton(
-                        icon: Icons.ios_share_rounded,
+                        icon: LucideIcons.share2,
                         tooltip: 'Share this shot',
                         onPressed: () {
                           final box = context.findRenderObject() as RenderBox?;

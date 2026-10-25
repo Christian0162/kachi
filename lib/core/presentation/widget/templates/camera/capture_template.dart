@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../config/constant/app_colors.dart';
@@ -90,7 +91,7 @@ class CaptureTemplate extends StatelessWidget {
                 top: AppSpacing.sm,
                 left: AppSpacing.sm,
                 child: MdCameraIconButton(
-                  icon: Icons.close_rounded,
+                  icon: LucideIcons.x,
                   tooltip: 'Close',
                   onPressed: onClose,
                 ),

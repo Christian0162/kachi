@@ -21,16 +21,22 @@ abstract final class AppSpacing {
   static const dockHeight = 64.0;
 }
 
-/// Centralized corner-radius scale.
+/// Centralized corner radii.
+///
+/// Every card, tile, sheet and photo frame shares [base] (10px); buttons
+/// use [button] (15px).
+/// [pill] is only for badges, counters, dots and progress bars.
 abstract final class AppRadius {
-  static const sm = 10.0;
-  static const md = 14.0;
-  static const lg = 18.0;
-  static const xl = 24.0;
+  static const base = 10.0;
 
-  static const photo = 28.0;
+  /// Buttons, including the big call-to-action bars, are a little rounder
+  /// than cards.
+  static const button = 15.0;
 
   static const pill = 999.0;
+
+  /// Floating surfaces: the navigation dock and the prompt bar.
+  static const floating = 24.0;
 }
 
 /// Icon sizes.

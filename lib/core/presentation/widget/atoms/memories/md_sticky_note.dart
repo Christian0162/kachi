@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_shadows.dart';
@@ -55,7 +56,7 @@ class MdStickyNote extends StatelessWidget {
             child: Transform.rotate(
               angle: -0.55,
               child: Icon(
-                Icons.attach_file_rounded,
+                LucideIcons.paperclip,
                 size: AppIconSizes.xl,
                 color: AppColors.textMuted,
                 shadows: const [Shadow(color: AppColors.shadow, blurRadius: 3)],

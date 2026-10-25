@@ -22,6 +22,7 @@ class PeopleScreen extends ConsumerWidget {
   Future<(String, String)?> _askForPerson(BuildContext context) {
     return showModalBottomSheet<(String, String)>(
       context: context,
+      useRootNavigator: true,
       isScrollControlled: true,
       builder: (_) => Consumer(
         builder: (context, ref, _) {
@@ -62,6 +63,7 @@ class PeopleScreen extends ConsumerWidget {
   Future<void> _addFriend(BuildContext context) {
     return showModalBottomSheet<void>(
       context: context,
+      useRootNavigator: true,
       isScrollControlled: true,
       showDragHandle: true,
       builder: (_) => Consumer(
