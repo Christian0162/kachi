@@ -99,6 +99,8 @@ flutter:
     - assets/fonts/OFL-Outfit.txt
     - assets/fonts/OFL-Inter.txt
     - assets/fonts/OFL-Caveat.txt
+    # The Kachi logo, shown on the welcome and account screens.
+    - assets/images/branding/kachi_logo.png
     # Example photo for each quest category. Credits: CREDITS.md there.
     - assets/images/quests/for_us.jpg
     - assets/images/quests/for_family.jpg

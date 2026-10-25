@@ -4,6 +4,7 @@ import '../../../../../config/constant/app_colors.dart';
 import '../../../../../config/constant/app_motion.dart';
 import '../../../../../config/constant/app_spacing.dart';
 import '../../../../../config/constant/app_typography.dart';
+import '../../atoms/common/md_kachi_logo.dart';
 import 'md_animated_kachi_logo.dart';
 
 /// The logo with "Kachi" written under it: the same brand mark on the
@@ -23,9 +24,9 @@ class MdBrandHeader extends StatelessWidget {
   /// A soft peach glow behind the logo, so the print sits in warm light.
   final bool glow;
 
-  /// The logo's canvas has empty margin around the prints; trimming its
-  /// layout height keeps the title right under them.
-  static const _trim = 0.64;
+  /// The logo's canvas has empty margin around the print; trimming its
+  /// layout height keeps the title right under it.
+  static const _trim = MdKachiLogo.artFraction;
 
   @override
   Widget build(BuildContext context) {

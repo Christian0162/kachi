@@ -194,5 +194,7 @@ store upload and record releases in [CHANGELOG.md](CHANGELOG.md).
 
 Example quest photos are from [Unsplash](https://unsplash.com), listed in
 [`assets/images/quests/CREDITS.md`](assets/images/quests/CREDITS.md). The app
-icon is [`assets/icon/app_icon.png`](assets/icon/app_icon.png); replace the
-generated Android and iOS icons together if it changes.
+icon is [`assets/icon/app_icon.png`](assets/icon/app_icon.png) and the in-app
+logo is [`assets/images/branding/kachi_logo.png`](assets/images/branding/kachi_logo.png);
+replace the generated Android, iOS, web, macOS and Windows icons and the launch
+screens together if they change.

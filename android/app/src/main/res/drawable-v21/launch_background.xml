@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Launch splash: Kachi coral with the vector logo (sharp at any
-     density), shown while the app starts. -->
+<!-- Launch splash: Kachi coral with the logo (a high-resolution PNG, sharp at any
+     density up to xxhdpi), shown while the app starts. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/ic_launcher_background" />
     <item

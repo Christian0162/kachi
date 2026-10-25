@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Android 12+ system splash: coral with the vector logo, then the
+    <!-- Android 12+ system splash: coral with the logo, then the
          app opens. -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowSplashScreenBackground">@color/ic_launcher_background</item>
